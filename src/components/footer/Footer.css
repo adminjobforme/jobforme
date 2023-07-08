@@ -1,0 +1,14 @@
+#footer-top {
+    background-color: white;
+    height: 14vh;
+}
+
+#footer-bottom {
+    height: 7vh;
+    background-color: #F6F6F8;
+}
+
+#footer-bottom-text {
+    color: #2F2B43;
+    opacity: 0.6;
+}
