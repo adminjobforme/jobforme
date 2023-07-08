@@ -18,7 +18,7 @@ const Home = () => {
                     </p>
                 </div>
                 <div className='d-flex justify-content-around' id='home-b-2'>
-                    <div className='row row-cols-3 row-cols-sm-2 row-cols-md-3' id='home-b-2-content'>
+                    <div className='row row-cols-1 row-cols-md-3' id='home-b-2-content'>
                         {homeServices.map((item) => {
                             return(
                                 <div className='col d-flex-col justify-content-center align-items-center pt-5' key={item.key} id='home-service-item'>

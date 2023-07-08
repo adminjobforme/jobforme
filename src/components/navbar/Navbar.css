@@ -1,4 +1,4 @@
-#Navbar {
+#navbar-desktop {
     z-index: 100;
     height: 7vh;
     left: 0px !important;
@@ -7,7 +7,22 @@
     margin-right: auto;
     border-radius: 2rem;
     box-shadow: 2px 2px 1px 2px #d8d8d8;
-    background-color: white;   
+    background-color: white;
+}
+
+.hidden-desktop{
+    visibility: hidden;
+    display: none !important;
+}
+
+@media (max-width: 1050px) {
+    .hidden-mobile{
+        visibility: hidden;
+    }
+    .hidden-desktop{
+        visibility: visible;
+        display: flex !important;
+    }
 }
 
 #navbar-text {
