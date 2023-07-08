@@ -1,3 +1,4 @@
+import { LogoMulti } from '../../icons';
 import './Footer.css';
 
 const Footer = () => {
@@ -5,7 +6,7 @@ const Footer = () => {
         <section className="d-flex-col w-100" id="footer">
             <div className='d-flex align-items-center justify-content-around' id="footer-top">
                 <div className='d-flex align-items-center justify-content-start mx-5 w-50' id='footer-logo'>
-                    Logo
+                    <LogoMulti/>
                 </div>
                 <div className='d-flex align-items-center justify-content-around w-50' id='footer-content'>
                     <div>

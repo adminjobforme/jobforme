@@ -1,3 +1,4 @@
+import { LogoMulti } from '../../icons';
 import './Navbar.css';
 import {Dropdown} from 'react-bootstrap';
 
@@ -5,7 +6,7 @@ const Navbar = () => {
     return(
         <div className='w-50 d-flex align-items-center justify-content-around position-fixed mt-3' id='Navbar'>
             <div className='d-flex justify-content-center align-items-center' id='navbar-logo'>
-                Logo
+                <LogoMulti/>
             </div>
             <div className='d-flex w-75 align-itmes-center justify-content-around'>
                 <div className='d-flex w-25'>
