@@ -39,7 +39,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className='d-flex w-100 align-items-center justify-content-between hidden-desktop py-2' id='navbar-mobile'>
+            <div className='d-flex w-100 align-items-center justify-content-between position-fixed hidden-desktop py-2' id='navbar-mobile'>
                 <div className='mx-3 my-2'>
                     <LogoMulti/>
                 </div>

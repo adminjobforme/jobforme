@@ -15,6 +15,11 @@
     display: none !important;
 }
 
+#navbar-mobile {
+    z-index: 100;
+    background-color: white;
+}
+
 @media (max-width: 1050px) {
     .hidden-mobile{
         visibility: hidden;

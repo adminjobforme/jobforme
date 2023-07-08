@@ -2,7 +2,22 @@
     position: relative;
     min-width: 100%;
     min-height: 100vh;
+}
+
+#HomeA::before {
+    content: '';
     background-image: linear-gradient(to right, #169b62, #00b09f, #51c2ce, #96d2eb, #cfe2f8, #dce2fe, #ece1ff, #fde0fc, #ffc4e5, #ffa8bb, #ff9181, #ff883e);
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.6;
+}
+
+#home-content-A {
+    position: relative;
 }
 
 #HomeB {
