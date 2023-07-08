@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { LogoMulti } from '../../icons';
 import { Hamburger } from '../../icons/navbar-mobile';
 import './Navbar.css';
@@ -6,9 +7,11 @@ import {Dropdown} from 'react-bootstrap';
 const Navbar = () => {
     return(
         <div className='d-flex'>
-            <div className='w-50 d-flex align-items-center justify-content-around position-fixed mt-3 hidden-mobile' id='navbar-desktop'>
+            <div className='w-50 d-flex align-items-center justify-content-around position-fixed mt-1 hidden-mobile' id='navbar-desktop'>
                 <div className='d-flex justify-content-center align-items-center' id='navbar-logo'>
-                    <LogoMulti/>
+                    <Link to='/'>
+                        <LogoMulti/>
+                    </Link>
                 </div>
                 <div className='d-flex w-75 align-itmes-center justify-content-around'>
                     <div className='d-flex w-25'>
@@ -18,20 +21,26 @@ const Navbar = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="/action-3">Something else</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>
-                    <div className='d-flex align-items-center w-25' id='navbar-text'>
-                        About Us
+                    <div className='d-flex align-items-center w-25'>
+                        <Link to='/about-us' id='navbar-text' style={{textDecoration:'none'}}>
+                            About Us
+                        </Link>
                     </div>
-                    <div className='d-flex align-items-center w-25' id='navbar-text'>
-                        Contact Us
+                    <div className='d-flex align-items-center w-25'>
+                        <Link to='/contact-us' id='navbar-text' style={{textDecoration:'none'}}>
+                            Contact Us
+                        </Link>
                     </div>
-                    <div className='d-flex align-items-center w-25' id='navbar-text'>
-                        Track Order
+                    <div className='d-flex align-items-center w-25'>
+                        <Link to='/track-order' id='navbar-text' style={{textDecoration:'none'}}>
+                            Track Order
+                        </Link>
                     </div>
                 </div>
                 <div className='w-25 d-flex align-items-center justify-content-center'>
@@ -62,9 +71,9 @@ const Navbar = () => {
                                 </Dropdown.Menu>
                             </Dropdown>
 
-                            <Dropdown.Item href="#/action-2">About Us</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Contact Us</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Track Order</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2" id='navbar-text'>About Us</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3" id='navbar-text'>Contact Us</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3" id='navbar-text'>Track Order</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>

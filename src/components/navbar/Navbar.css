@@ -35,6 +35,10 @@
     opacity: 0.6;
 }
 
+#navbar-text-dropdown {
+    color: black;
+}
+
 #navbar-logo {
     width: 20%;
 }
