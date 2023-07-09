@@ -3,6 +3,9 @@
   padding: 0;
   font-family: 'Inter', sans-serif;
 }
+.App {
+  background-color: white;
+}
 
 .btn-ternary {
   background-color: #FF883E;
@@ -22,6 +25,11 @@
 .faded {
   color: #2F2B43;
   opacity: 0.6;
+  font-weight: 500;
+}
+
+.faded-subheader{
+  color: #9CA3AF;
 }
 
 

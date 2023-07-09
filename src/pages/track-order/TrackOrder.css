@@ -1,0 +1,41 @@
+#track-order-top {
+    min-height: 79vh;
+    position: relative
+}
+
+#track-order-top::before {
+    content: '';
+    background-image: linear-gradient(#FF883E,#169B62);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.25;
+}
+
+#track-order-bottom {
+    min-height: 79vh;
+    position: relative
+}
+
+#track-order-content {
+    position: relative;
+}
+
+#track-order-input {
+    border-radius: 2rem;
+}
+
+#track-order-submit {
+    padding: 1.2rem !important;
+}
+
+.track-order-status-message {
+    color: #6B7280;
+}
+
+#track-order-spinner {
+    border-radius: 100%;
+    color: #169B62;
+}

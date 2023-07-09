@@ -9,13 +9,13 @@ const Footer = () => {
                     <LogoMulti/>
                 </div>
                 <div className='d-flex align-items-center justify-content-around w-50' id='footer-content'>
-                    <div>
+                    <div className='fw-bold faded'>
                         Link A
                     </div>
-                    <div>
+                    <div className='fw-bold faded'>
                         Link B
                     </div>
-                    <div>
+                    <div className='fw-bold faded'>
                         Link C
                     </div>
                 </div>
