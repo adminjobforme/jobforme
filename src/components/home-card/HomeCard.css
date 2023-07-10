@@ -1,0 +1,80 @@
+#homecard {
+    height: 75vh;
+    width: 250px;
+    border-radius: 1rem;
+}
+
+#homecard-body {
+    border-top: 1px solid rgba(47, 43, 67, 0.1);
+    border-bottom: 1px solid rgba(47, 43, 67, 0.1);
+}
+
+#homecard-button-div {
+    height: 20%;
+}
+
+#homecard-button {
+    width: 100%;
+    height: 75%;
+    border-radius: 1.2rem;
+    border: none;
+}
+
+#homecard-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#homecard-header-tag {
+    font-size: 12px;
+    border-radius: 1rem;
+}
+
+#homecard-body-subheader {
+    font-size: 12px !important;
+}
+
+#homecard-body-subheader {
+    font-size: 12px !important;
+}
+
+.homecard-info-header-text-size {
+    font-size: 12px;
+}
+
+.homecard-info-text-size {
+    font-size: 10px;
+}
+
+.homecard-btn-normal {
+    color: rgba(47, 43, 67);;
+    background-color: white;
+    border: 1px solid rgba(47, 43, 67, 0.1);
+    box-shadow: 1px 1px 1px 2px rgba(47, 43, 67, 0.1);
+    font-weight: 500;
+}
+
+.homecard-btn-special {
+    color: white;
+    background-color: #FF883E;
+    font-weight: 500;
+}
+
+.homecard-special {
+    position: relative;
+    border: none !important;
+}
+
+.homecard-special::before {
+    content: '';
+    background-image: linear-gradient(to right, #169B62, #FFFFFF, #FF883E);
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.6;
+    border-radius: 1rem;
+}

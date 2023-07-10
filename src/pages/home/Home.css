@@ -1,10 +1,10 @@
-#HomeA {
+#home-a {
     position: relative;
     min-width: 100%;
     min-height: 70vh;
 }
 
-#HomeA::before {
+#home-a::before {
     content: '';
     background-image: linear-gradient(to right, #169b62, #00b09f, #51c2ce, #96d2eb, #cfe2f8, #dce2fe, #ece1ff, #fde0fc, #ffc4e5, #ffa8bb, #ff9181, #ff883e);
     background-position: center;
@@ -16,11 +16,11 @@
     opacity: 0.6;
 }
 
-#home-content-A {
+#home-content-a {
     position: relative;
 }
 
-#HomeB {
+#home-b {
  min-width: 100%;
  min-height: 100vh;
 }
@@ -38,6 +38,26 @@
 }
 
 #home-b-2-content {
-    width: 100%;
+    max-width: 100%;
     min-height: 100%;
+}
+
+#home-c {
+    max-width: 100%;
+    height: 50vh;
+}
+
+#home-d {
+    max-width: 100%;
+    height: 105vh;
+}
+
+#home-d-top {
+    max-width: 100%;
+    height: 30vh;
+}
+
+#home-d-bottom {
+    max-width: 100%;
+    height: 75vh;
 }

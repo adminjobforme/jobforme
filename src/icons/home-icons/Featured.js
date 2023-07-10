@@ -1,0 +1,53 @@
+import * as React from 'react'
+const SvgFeatured = (props) => (
+  <svg xmlns='http://www.w3.org/2000/svg' width={54} height={54} fill='none' {...props}>
+    <g filter='url(#featured_svg__a)'>
+      <rect width={48} height={48} x={3} y={2} fill='#fff' rx={24} shapeRendering='crispEdges' />
+      <path fill='#2F2B43' d='M28 24h7l-9 13v-9h-7l9-13v9Z' />
+      <rect
+        width={47}
+        height={47}
+        x={3.5}
+        y={2.5}
+        stroke='#2F2B43'
+        strokeOpacity={0.1}
+        rx={23.5}
+        shapeRendering='crispEdges'
+      />
+    </g>
+    <defs>
+      <filter
+        id='featured_svg__a'
+        width={54}
+        height={54}
+        x={0}
+        y={0}
+        colorInterpolationFilters='sRGB'
+        filterUnits='userSpaceOnUse'
+      >
+        <feFlood floodOpacity={0} result='BackgroundImageFix' />
+        <feColorMatrix
+          in='SourceAlpha'
+          result='hardAlpha'
+          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+        />
+        <feOffset dy={1} />
+        <feGaussianBlur stdDeviation={1.5} />
+        <feComposite in2='hardAlpha' operator='out' />
+        <feColorMatrix values='0 0 0 0 0.184314 0 0 0 0 0.168627 0 0 0 0 0.262745 0 0 0 0.1 0' />
+        <feBlend in2='BackgroundImageFix' result='effect1_dropShadow_265_57439' />
+        <feBlend in='SourceGraphic' in2='effect1_dropShadow_265_57439' result='shape' />
+        <feColorMatrix
+          in='SourceAlpha'
+          result='hardAlpha'
+          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
+        />
+        <feOffset dy={-1} />
+        <feComposite in2='hardAlpha' k2={-1} k3={1} operator='arithmetic' />
+        <feColorMatrix values='0 0 0 0 0.184314 0 0 0 0 0.168627 0 0 0 0 0.262745 0 0 0 0.1 0' />
+        <feBlend in2='shape' result='effect2_innerShadow_265_57439' />
+      </filter>
+    </defs>
+  </svg>
+)
+export default SvgFeatured

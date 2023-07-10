@@ -1,12 +1,13 @@
+import HomeCard from '../../components/home-card/HomeCard';
 import Loading from '../../components/loading/Loading';
 import './Home.css';
 import { homeServices } from './home-services';
 
 const Home = () => {
     return(
-        <div className='d-flex-column' id='Home'>
-            <section className='d-flex align-items-center justify-content-center' id='HomeA'>
-                <div className='d-flex-col w-50 align-items-center justify-content-center' id='home-content-A'>
+        <div className='d-flex-column' id='home'>
+            <section className='d-flex align-items-center justify-content-center' id='home-a'>
+                <div className='d-flex-col w-50 align-items-center justify-content-center' id='home-content-a'>
                     <h1 className='text-center fw-bold mb-5'>Enhance your potential with us.</h1>
                     <h5 className='text-center faded'>
                         <p>Need help with CV, landing your dream job or career guidance?</p>
@@ -14,7 +15,8 @@ const Home = () => {
                     </h5>
                 </div>
             </section>
-            <section className='d-flex-col align-items-stretch' id='HomeB'>
+
+            <section className='d-flex-col align-items-stretch' id='home-b'>
                 <div id='home-b-1'>
                     <h1 className='text-center fw-bold w-75'>
                         One platform, all the help you need to find the right workplace.
@@ -36,6 +38,50 @@ const Home = () => {
                                 </div>
                             )
                         })}
+                    </div>
+                </div>
+            </section>
+
+            <section id='home-c'>
+                <div className='d-flex flex-column justify-content-around h-100'>
+                    <div className='d-flex flex-column justify-content-end h-50'>
+                        <h2 className='text-center fw-bold'>Important once in a lifetime investment</h2>
+                        <p className='text-center faded'>
+                            It’s our passion and aim to help you reach for the goal and bring out your best potential
+                        </p>
+                    </div>
+                    <div className='h-50 row row-cols-1 row-cols-md-3 w-100'>
+                        <div className='d-flex flex-column col justify-content-center'>
+                            <h1 className='text-center fw-bold'>Over 3X</h1>
+                            <h6 className='text-center'>More chances for an interview</h6>
+                        </div>
+                        <div className='d-flex flex-column col justify-content-center'>
+                            <h1 className='text-center fw-bold'>Over 3X</h1>
+                            <h6 className='text-center'>More chances for an interview</h6>
+                        </div>
+                        <div className='d-flex flex-column col justify-content-center'>
+                            <h1 className='text-center fw-bold'>Over 3X</h1>
+                            <h6 className='text-center'>More chances for an interview</h6>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id='home-d'>
+                <div className='d-flex flex-column h-100'>
+                    <div className='d-flex flex-column align-items-center justify-content-end' id='home-d-top'>
+                        <h1 className='text-center fw-bold'>Build your career with us.</h1>
+                        <p className='text-center faded w-50'>
+                            Ranging from Entry level to Professional roles, our prices stay the same and do not change depending on your career level.
+                        </p>
+                    </div>
+
+                    <div className='d-flex align-items-center justify-content-around' id='home-d-bottom'>
+                        <div className='w-75 d-flex justify-content-around'>
+                            <HomeCard/>
+                            <HomeCard/>
+                            <HomeCard/>
+                        </div>
                     </div>
                 </div>
             </section>
