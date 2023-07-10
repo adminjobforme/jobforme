@@ -79,8 +79,6 @@ const Home = () => {
                     <div className='d-flex align-items-center justify-content-around' id='home-d-bottom'>
                         <div className='w-75 d-flex justify-content-around'>
                             <HomeCard/>
-                            <HomeCard/>
-                            <HomeCard/>
                         </div>
                     </div>
                 </div>
