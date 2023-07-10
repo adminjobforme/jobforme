@@ -5,13 +5,13 @@
 
 #track-order-top::before {
     content: '';
-    background-image: linear-gradient(#FF883E,#169B62);
+    background-image: linear-gradient(hsl(23, 100%, 62%),hsl(154, 100%, 35%));
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    opacity: 0.25;
+    opacity: 0.4;
 }
 
 #track-order-bottom {

@@ -4,7 +4,7 @@ import './HomeCard.css';
 
 const HomeCard = () => {
   return (
-    <div className='border' id='homecard'>
+    <div className='border col' id='homecard'>
         <div className='d-flex flex-column' id='homecard-content'>
             <div className='d-flex flex-column h-50 mx-2 py-2'>
 
@@ -32,7 +32,7 @@ const HomeCard = () => {
                 </div> 
             </div>
 
-            <div className='h-50 mx-2 d-flex flex-column align-items-center' id='homecard-body'>
+            <div className='h-50 mx-2 d-flex flex-column align-items-center justify-content-around' id='homecard-body'>
                 <div className='d-flex py-1'>
                     <div>
                         <Web/>

@@ -1,5 +1,5 @@
 #homecard {
-    min-height: 450px;
+    min-height: 475px;
     height: 75vh;
     width: 250px;
     border-radius: 1rem;
@@ -58,7 +58,7 @@
 
 .homecard-btn-special {
     color: white;
-    background-color: #FF883E;
+    background-color: hsl(23, 100%, 50%);
     font-weight: 500;
 }
 

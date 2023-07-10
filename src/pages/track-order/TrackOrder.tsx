@@ -5,7 +5,7 @@ import { Spinner } from '../../icons/track-order';
 const TrackOrder = () => {
   return (
     <div className='d-flex flex-column'>
-        <div className='d-flex justify-content-center align-items-center border' id='track-order-top'>
+        <div className='d-flex justify-content-center align-items-center' id='track-order-top'>
             <div className='d-flex flex-column align-items-center w-75' id='track-order-content'>
                 <h1 className='fw-bold text-center'>
                     Enter the tracking number and we will tell you everything about it.

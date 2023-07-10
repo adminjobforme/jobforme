@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
-  color: #2F2B43;
+  color: hsl(250, 22%, 0%);
 }
 .App {
   background-color: white;
 }
 
 .btn-ternary {
-  background-color: #FF883E;
+  background-color: hsl(23, 100%, 50%);
   color: white;
   border: none;
   height: 5vh;
@@ -24,8 +24,7 @@
 /* text styles */
 
 .faded {
-  color: #2F2B43;
-  opacity: 0.6;
+  color: hsl(250, 22%, 70%);
   font-weight: 500;
 }
 

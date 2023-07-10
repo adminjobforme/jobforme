@@ -5,14 +5,11 @@ import { homeServices } from './home-services';
 
 const Home = () => {
     return(
-        <div className='d-flex-column' id='home'>
+        <div className='d-flex flex-column' id='home'>
             <section className='d-flex align-items-center justify-content-center' id='home-a'>
-                <div className='d-flex-col w-50 align-items-center justify-content-center' id='home-content-a'>
+                <div className='d-flex-col align-items-center justify-content-center' id='home-content-a'>
                     <h1 className='text-center fw-bold mb-5'>Enhance your potential with us.</h1>
-                    <h5 className='text-center faded'>
-                        <p>Need help with CV, landing your dream job or career guidance?</p>
-                        <p>Contact us, we&#39;re here to help!</p>
-                    </h5>
+                    <p className='fs-5 text-center'>Need help with CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
                 </div>
             </section>
 
@@ -67,8 +64,8 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id='home-d'>
-                <div className='d-flex flex-column h-100'>
+            <section className='d-flex w-100' id='home-d'>
+                <div className='d-flex flex-column w-100 h-100'>
                     <div className='d-flex flex-column align-items-center justify-content-end' id='home-d-top'>
                         <h1 className='text-center fw-bold'>Build your career with us.</h1>
                         <p className='text-center faded w-50'>
@@ -77,7 +74,9 @@ const Home = () => {
                     </div>
 
                     <div className='d-flex align-items-center justify-content-around' id='home-d-bottom'>
-                        <div className='w-75 d-flex justify-content-around'>
+                        <div className='h-100 row row-cols-1 row-cols-md-2 row-cols-lg-3 w-75 d-flex justify-content-around'>
+                            <HomeCard/>
+                            <HomeCard/>
                             <HomeCard/>
                         </div>
                     </div>
