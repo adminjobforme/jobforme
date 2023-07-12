@@ -1,10 +1,9 @@
-import { Alert } from 'react-bootstrap';
 import { Edit, Featured, Web } from '../../icons/home-icons';
 import './HomeCard.css';
 
 const HomeCard = () => {
   return (
-    <div className='border col' id='homecard'>
+    <div className='border col my-2' id='homecard'>
         <div className='d-flex flex-column' id='homecard-content'>
             <div className='d-flex flex-column h-50 mx-2 py-2'>
 
@@ -26,8 +25,8 @@ const HomeCard = () => {
                 </div>
                 <div className='d-flex align-itmes-end justify-content-start h-50'>
                     <h2>€60</h2>
-                    <div className='d-flex align-items-end justify-content-end h-100'>
-                        <p className='p-0 mb-2 mx-1 faded' id='homecard-body-subheader'>/Single</p>
+                    <div className='d-flex align-items-center justify-content-end h-100'>
+                        <p className='p-0 mx-1 faded' id='homecard-body-subheader'>/Single</p>
                     </div>
                 </div> 
             </div>

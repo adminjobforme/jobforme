@@ -1,0 +1,52 @@
+#about-us {
+    min-height: 100vh;
+}
+
+#about-us-a {
+    height: 60vh;
+    position: relative;
+    min-width: 100%;
+    min-height: 70vh;
+}
+
+#about-us-a::before {
+    content: '';
+    background-image: linear-gradient(to right, hsl(45, 100%, 51%), hsl(10, 100%, 55%));
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+}
+
+#about-us-b {
+    min-height: 100vh;
+}
+
+#about-us-vision-tag {
+    background-color: hsl(144,73%,91%);
+    height: 32px;
+    width: 157px;
+    border-radius: 1rem;
+}
+
+.about-us-vision {
+    font-size: 14px !important;
+    color: hsl(150, 52%, 38%);
+}
+
+.about-us-a-content {
+    position: relative;
+}
+
+.about-us-a-subtext {
+    color: hsl(250, 22%, 22%);
+    opacity: 0.8;
+}
+
+.about-us-image-round {
+    border-radius: 2rem;
+    background-color: hsl(0, 0%, 59%);
+}
