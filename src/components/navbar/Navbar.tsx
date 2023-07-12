@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { LogoMulti } from '../../icons';
-import { Hamburger } from '../../icons/navbar-mobile';
 import './Navbar.css';
 import {Dropdown} from 'react-bootstrap';
 

@@ -1,0 +1,40 @@
+#contact-us {
+    min-height: 100vh;
+}
+
+#contact-us-a {
+    position: relative;
+    height: 70vh;
+}
+
+#contact-us-a::before {
+    content: '';
+    background-image: linear-gradient(hsl(287,100%,60%),hsl(33,100%,87%));
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+}
+
+#contact-us-b {
+    height: 100vh;
+}
+
+#contact-us-c {
+    height: 100vh;
+}
+
+#contact-us-d {
+    height: 40vh;
+}
+
+
+.contact-us-content {
+    position: relative;
+}
+
+.contact-us-a-subheader {
+    color: hsl(250, 22%, 22%);
+}
