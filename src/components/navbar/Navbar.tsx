@@ -20,9 +20,9 @@ const Navbar = () => {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="/cv-coverletter">CV / Cover Letter</Dropdown.Item>
+                            <Dropdown.Item href="/interview-jobhunt">Interviews / Job Hunting</Dropdown.Item>
+                            <Dropdown.Item href="/career-linkedIn">Career Plan / LinkedIn</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>

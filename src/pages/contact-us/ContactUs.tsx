@@ -1,6 +1,7 @@
-import { Alert } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
 import './ContactUs.css';
-import { Cv, Featured } from '../../icons/home-icons';
+import { Featured } from '../../icons/home-icons';
+import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
 const ContactUs = () => {
   return (
     <div className='' id='contact-us'>
@@ -18,19 +19,64 @@ const ContactUs = () => {
 
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-b'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Frequently Asked Questions</h3>
-                <div className='h-75 w-75 border'>
-
+                <div className='h-75 w-75'>
+                    <FaqDropdown/>
+                    <FaqDropdown/>
+                    <FaqDropdown/>
+                    <FaqDropdown/>
+                    <FaqDropdown/>
+                    <FaqDropdown/>
                 </div>
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-c'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Still Not able to find the answers? Send us a message</h3>
-                <div className='h-75 w-75 border'>
-
+                <div className='h-75 w-75 d-flex flex-column align-items-center justify-content-around'>
+                    <InputGroup className='h-100'>
+                        <div className="row row-cols-1 row-cols-md-2 w-100">
+                            <div className='col'>
+                            <Form.Control
+                            placeholder="Full Name"
+                            aria-label="Contact Us Name"
+                            aria-describedby="basic-addon2"
+                            className='rounded mx-3'
+                            />
+                            </div>
+                            <div className='col'>
+                            <Form.Control
+                            placeholder="Email"
+                            aria-label="Contact Us Email"
+                            aria-describedby="basic-addon2"
+                            className='rounded mx-3'
+                            />
+                            </div>
+                        </div>
+                        <div className='row row-cols-1 w-100'>
+                            <div className='col p-0 w-50'>
+                                <Form.Control
+                                placeholder="Phone Number..."
+                                aria-label="Track Order Input"
+                                aria-describedby="basic-addon2"
+                                className='rounded mx-3'
+                                />
+                            </div>
+                            <div className='col p-0 d-flex pb-3 w-100'>
+                                <Form.Control
+                                placeholder="Description..."
+                                aria-label="Track Order Input"
+                                aria-describedby="basic-addon2"
+                                className='rounded mx-3 h-100'
+                                />
+                            </div>
+                        </div>
+                    </InputGroup>
+                    <button className='btn-ternary w-25' id='track-order-submit'>
+                        Submit
+                    </button>  
                 </div>
         </section>
 
-        <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-d'>
+        <section className='d-flex flex-column justify-content-center align-items-center pt-5' id='contact-us-d'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Still Not satisfied, contact us through these options.</h3>
                 <div className='h-75 w-75 row row-cols-1 row-cols-lg-3'>
                     <div className='col'>

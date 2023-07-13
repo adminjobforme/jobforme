@@ -23,6 +23,7 @@
 @media (max-width: 1050px) {
     .hidden-mobile{
         visibility: hidden;
+        display: none !important;
     }
     .hidden-desktop{
         visibility: visible;
