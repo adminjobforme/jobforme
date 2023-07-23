@@ -52,24 +52,30 @@ const TrackOrder = () => {
                             </p>
                         </div>
                     </div>
-                    <div className='w-25'>
-                        <div>
-                            <h5 className='fw-bold mb-0'>Order step #02</h5>
-                            <p className='fw-lighter faded-subheader mt-0'>Released on Jan 1st 2020</p>
+                    <div className='d-flex flex-column justify-content-center align-items-center w-25'>
+                        <div className='spinner-border mb-4' id='track-order-spinner'>
+                        
                         </div>
                         <div>
-                            <p className='track-order-status-message'>
+                            <h5 className='fw-bold mb-0 text-center'>Order step #02</h5>
+                            <p className='fw-lighter faded-subheader mt-0 text-center'>Released on Jan 1st 2020</p>
+                        </div>
+                        <div>
+                            <p className='track-order-status-message text-center'>
                                 Lorem ipsum dolor sit amet consectetur. Elementum eros ac non eget feugiat velit diam.
                             </p>
                         </div>
                     </div>
-                    <div className='w-25'>
-                        <div>
-                            <h5 className='fw-bold mb-0'>Order step #03</h5>
-                            <p className='fw-lighter faded-subheader mt-0'>Released on Jan 1st 2020</p>
+                    <div className='d-flex flex-column justify-content-center align-items-center w-25'>
+                        <div className='spinner-border mb-4' id='track-order-spinner'>
+                        
                         </div>
                         <div>
-                            <p className='track-order-status-message'>
+                            <h5 className='fw-bold mb-0 text-center'>Order step #03</h5>
+                            <p className='fw-lighter faded-subheader mt-0 text-center'>Released on Jan 1st 2020</p>
+                        </div>
+                        <div>
+                            <p className='track-order-status-message text-center'>
                                 Lorem ipsum dolor sit amet consectetur. Elementum eros ac non eget feugiat velit diam.
                             </p>
                         </div>

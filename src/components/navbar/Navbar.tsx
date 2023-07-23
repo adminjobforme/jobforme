@@ -26,6 +26,7 @@ const Navbar = () => {
                         </Dropdown.Menu>
                     </Dropdown>
                     </div>
+                    
                     <div className='d-flex align-items-center w-25'>
                         <Link to='/about-us' id='navbar-text' style={{textDecoration:'none'}}>
                             About Us
@@ -43,7 +44,9 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className='w-25 d-flex align-items-center justify-content-center'>
-                    <button className='btn-ternary'>Get Started</button>
+                    <Link to='/checkout' className='text-decoration-none'>
+                        <button className='btn-ternary'>Get Started</button>
+                    </Link>
                 </div>
             </div>
 

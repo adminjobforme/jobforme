@@ -1,0 +1,8 @@
+#checkout{
+    min-height: 79vh;
+    height: 79vh;
+}
+
+#checkout-summary{
+    background-color: hsl(0, 0%, 98%);
+}

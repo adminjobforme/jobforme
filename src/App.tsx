@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import AboutUs from './pages/about-us/AboutUs';
 import ContactUs from './pages/contact-us/ContactUs';
 import TrackOrder from './pages/track-order/TrackOrder';
+import Checkout from './pages/checkout/Checkout';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/about-us' element={<AboutUs/>}/>
         <Route path='/contact-us' element={<ContactUs/>}/>
         <Route path='/track-order' element={<TrackOrder/>}/>
+        <Route path='/checkout' element={<Checkout/>}/>
       </Routes>
       <Footer/>
     </div>
