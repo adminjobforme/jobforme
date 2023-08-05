@@ -21,6 +21,10 @@
   padding: 1rem;
 }
 
+.btn-ternary:hover {
+  background-color: hsl(23, 100%, 49%);
+}
+
 /* text styles */
 
 .faded {

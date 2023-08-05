@@ -13,18 +13,10 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className='d-flex w-75 align-itmes-center justify-content-around'>
-                    <div className='d-flex w-25'>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="transparent" id="navbar-dropdown">
-                            Servies
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/cv-coverletter">CV / Cover Letter</Dropdown.Item>
-                            <Dropdown.Item href="/interview-jobhunt">Interviews / Job Hunting</Dropdown.Item>
-                            <Dropdown.Item href="/career-linkedIn">Career Plan / LinkedIn</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                <div className='d-flex align-items-center w-25'>
+                        <Link to='/services' id='navbar-text' style={{textDecoration:'none'}}>
+                            Services
+                        </Link>
                     </div>
                     
                     <div className='d-flex align-items-center w-25'>
@@ -61,21 +53,26 @@ const Navbar = () => {
                     <Dropdown className='mx-3'>
                         <Dropdown.Toggle variant="transparent" id="navbar-dropdown-mobile"/>
                         <Dropdown.Menu>
-                            <Dropdown>
-                                <Dropdown.Toggle variant="transparent" id="dropdown-basic">
-                                    Servies
-                                </Dropdown.Toggle>
-
-                                <Dropdown.Menu>
-                                    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">2</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">3</Dropdown.Item>
-                                </Dropdown.Menu>
-                            </Dropdown>
-
-                            <Dropdown.Item href="#/action-2" id='navbar-text'>About Us</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3" id='navbar-text'>Contact Us</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3" id='navbar-text'>Track Order</Dropdown.Item>
+                            <Dropdown.Item id='navbar-text'>
+                                <Link to='/services' id='navbar-text' style={{textDecoration:'none'}}>
+                                    Services
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/about-us' id='navbar-text' style={{textDecoration:'none'}}>
+                                    About Us
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/contact-us' id='navbar-text' style={{textDecoration:'none'}}>
+                                    Contact Us
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/track-order' id='navbar-text' style={{textDecoration:'none'}}>
+                                    Track Order
+                                </Link>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>

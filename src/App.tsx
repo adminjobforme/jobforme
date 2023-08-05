@@ -7,6 +7,7 @@ import AboutUs from './pages/about-us/AboutUs';
 import ContactUs from './pages/contact-us/ContactUs';
 import TrackOrder from './pages/track-order/TrackOrder';
 import Checkout from './pages/checkout/Checkout';
+import Services from './pages/services/Services';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
+        <Route path='/services' element={<Services/>}/>
         <Route path='/about-us' element={<AboutUs/>}/>
         <Route path='/contact-us' element={<ContactUs/>}/>
         <Route path='/track-order' element={<TrackOrder/>}/>

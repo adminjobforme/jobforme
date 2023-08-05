@@ -1,0 +1,31 @@
+#services-a {
+    position: relative;
+    min-width: 100%;
+    min-height: 70vh;
+}
+
+#services-a::before {
+    content: '';
+    background-image: linear-gradient(to right, hsl(154, 75%, 35%), hsl(174, 100%, 35%), hsl(186, 56%, 56%), hsl(198, 68%, 75%), hsl(212, 75%, 89%), hsl(229, 94%, 93%), hsl(262, 100%, 94%), hsl(302, 88%, 94%), hsl(326, 100%, 88%), hsl(347, 100%, 83%), hsl(8, 100%, 75%), hsl(23, 100%, 62%));
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.8;
+}
+
+#services-content-a {
+    position: relative;
+}
+
+#services-b {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+#services-c {
+    min-height: 100vh;
+    height: 100vh;
+}
