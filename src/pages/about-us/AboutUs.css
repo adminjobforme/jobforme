@@ -48,4 +48,6 @@
 .about-us-image-round {
     border-radius: 2rem;
     background-color: hsl(0, 0%, 59%);
+    min-height: 75%;
+    min-width: 100%;
 }

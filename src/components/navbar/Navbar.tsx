@@ -6,13 +6,13 @@ import {Dropdown} from 'react-bootstrap';
 const Navbar = () => {
     return(
         <div className='d-flex'>
-            <div className='w-50 d-flex align-items-center justify-content-around position-fixed mt-1 hidden-mobile' id='navbar-desktop'>
+            <div className='d-flex align-items-center justify-content-around position-fixed mt-1 hidden-mobile' id='navbar-desktop'>
                 <div className='d-flex justify-content-center align-items-center' id='navbar-logo'>
-                    <Link to='/'>
-                        <LogoMulti/>
+                    <Link to='/' className='text-decoration-none text-dark mt-1 fw-bold'>
+                        <LogoMulti/> JOB4ME
                     </Link>
                 </div>
-                <div className='d-flex w-75 align-itmes-center justify-content-around'>
+                <div className='d-flex w-75 align-itmes-center justify-content-around mx-2'>
                 <div className='d-flex align-items-center w-25'>
                         <Link to='/services' id='navbar-text' style={{textDecoration:'none'}}>
                             Services
@@ -44,7 +44,9 @@ const Navbar = () => {
 
             <div className='d-flex w-100 align-items-center justify-content-between position-fixed hidden-desktop py-2' id='navbar-mobile'>
                 <div className='mx-3 my-2'>
-                    <LogoMulti/>
+                    <Link to='/' className='text-decoration-none text-dark mt-1 fw-bold'>
+                        <LogoMulti/> JOB4ME
+                    </Link>
                 </div>
                 <div className='d-flex justify-content-between mx-3'>
                     <div className=' d-flex align-items-center justify-content-center'>

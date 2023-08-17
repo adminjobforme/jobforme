@@ -5,14 +5,15 @@ export interface HomeCardModel {
     subheader: string;
     pricing: CardPricingItem;
     info: CardInfoItem;
+    mostPopular: boolean;
 }
 
-interface CardPricingItem {
+export interface CardPricingItem {
     value: number;
     offer: string;
 }
 
-interface CardInfoItem {
+export interface CardInfoItem {
     icon: () => JSX.Element;
     header: string;
     subheader?: string;

@@ -28,7 +28,7 @@
 /* text styles */
 
 .faded {
-  color: hsl(250, 22%, 70%);
+  color: hsl(250, 22%, 22%, 60%);
   font-weight: 500;
 }
 
