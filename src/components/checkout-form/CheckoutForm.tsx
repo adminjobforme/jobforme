@@ -1,13 +1,7 @@
 import { Button, Form } from 'react-bootstrap';
 import './CheckoutForm.css';
-import { Multiselect, MultiselectValue } from 'react-bootstrap-multiselect-ts';
 
 const CheckoutForm = () => {
-  const selections: MultiselectValue[] = [
-    {value: 'option 1', label: 'option 1'},
-    {value: 'option 2', label: 'option 2'},
-    {value: 'option 3', label: 'option 3'}
-  ]
   return (
     <div className='d-flex flex-column align-items-center justify-content-center w-100 h-100' id='checkout-form'>
         <Form className='d-flex flex-column align-items-center'>
@@ -25,7 +19,7 @@ const CheckoutForm = () => {
             <div className='d-flex justify-content-between'>
                 <Form.Group className="mb-3 mx-2 w-50" controlId="formBasicEmail">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Email" required />
+                    <Form.Control type="email" className='form-control' placeholder="Email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3 mx-2 w-50" controlId="formBasicPhone">

@@ -1,6 +1,11 @@
-import { Button } from 'react-bootstrap'
-import './Services.css'
-import { CareerScene, CvScene, InterviewScene, LinkedinScene } from '../../icons/services'
+import { Button } from 'react-bootstrap';
+import './Services.css';
+import { CareerScene, CvScene, InterviewScene, LinkedinScene } from '../../icons/services';
+import careerScene from '../../images/services/careerPlan.png';
+import cvScene from '../../images/services/cv.png';
+import interviewScene from '../../images/services/interview.png';
+import linkedinScene from '../../images/services/linkedIn.png';
+
 const Services = () => {
   return (
     <div id='services'>
@@ -24,7 +29,7 @@ const Services = () => {
               </Button>
             </div>
             <div className='d-flex align-items-center justify-content-center w-100 h-100 rounded'>
-              <InterviewScene className='w-100 h-100'></InterviewScene>
+              <img src={interviewScene} className='h-100'/>
             </div>
           </div>
 
@@ -41,7 +46,7 @@ const Services = () => {
               </Button>
             </div>
             <div className='d-flex align-items-center justify-content-center w-100 h-100 rounded'>
-              <CareerScene className='w-100 h-100'></CareerScene>
+              <img src={careerScene} className='h-100'/>
             </div>
           </div>
         </section>
@@ -59,7 +64,7 @@ const Services = () => {
               </Button>
             </div>
             <div className='d-flex align-items-center justify-content-center  w-100 h-100 rounded'>
-              <CvScene className='w-100 h-100'></CvScene>
+              <img src={cvScene} className='h-100'/>
             </div>
           </div>
 
@@ -76,7 +81,7 @@ const Services = () => {
                 </Button>
               </div>
               <div className='d-flex align-items-center justify-content-center w-100 h-100 rounded'>
-                <LinkedinScene className='w-100 h-100'></LinkedinScene>
+                <img src={linkedinScene} className='h-100'/>
               </div>
           </div>
         </section>
