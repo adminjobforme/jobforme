@@ -1,10 +1,8 @@
-import { Dropdown, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import HomeCard from '../../components/home-card/HomeCard';
-import Loading from '../../components/loading/Loading';
 import './Home.css';
 import { homeCardService, homeServices } from './home-service';
 import { HomeCardModel } from '../../shared/home-card-model';
-import { IndexInfo } from 'typescript';
 
 const Home = () => {
     return(
