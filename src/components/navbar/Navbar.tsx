@@ -57,26 +57,26 @@ const Navbar = () => {
                     <Dropdown className='mx-3'>
                         <Dropdown.Toggle variant="transparent" id="navbar-dropdown-mobile"/>
                         <Dropdown.Menu>
-                            <Link to='/services' id='navbar-text' style={{textDecoration:'none'}}>
-                                <Dropdown.Item id='navbar-text'>
+                            <Dropdown.Item id='navbar-text'>
+                                <Link to='/services' id='navbar-text' className='w-100' style={{textDecoration:'none'}}>
                                     Services
-                                </Dropdown.Item>
-                            </Link>
-                            <Link to='/about-us' id='navbar-text' style={{textDecoration:'none'}}>
-                                <Dropdown.Item  id='navbar-text'>
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/about-us' id='navbar-text' className='w-100' style={{textDecoration:'none'}}>
                                     About Us
-                                </Dropdown.Item>
-                            </Link>
-                            <Link to='/contact-us' id='navbar-text' style={{textDecoration:'none'}}>
-                                <Dropdown.Item  id='navbar-text'>
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/contact-us' id='navbar-text' className='w-100' style={{textDecoration:'none'}}>
                                     Contact Us
-                                </Dropdown.Item>
-                            </Link>
-                            <Link to='/track-order' id='navbar-text' style={{textDecoration:'none'}}>
-                                <Dropdown.Item  id='navbar-text'>
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item  id='navbar-text'>
+                                <Link to='/track-order' id='navbar-text' className='w-100' style={{textDecoration:'none'}}>
                                     Track Order
-                                </Dropdown.Item>
-                            </Link>
+                                </Link>
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
