@@ -8,6 +8,7 @@ import ContactUs from './pages/contact-us/ContactUs';
 import TrackOrder from './pages/track-order/TrackOrder';
 import Checkout from './pages/checkout/Checkout';
 import Services from './pages/services/Services';
+import TermsAndConditions from './pages/terms-and-conditions/TermsAndConditions';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/contact-us' element={<ContactUs/>}/>
         <Route path='/track-order' element={<TrackOrder/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
+        <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
       </Routes>
       <Footer/>
     </div>

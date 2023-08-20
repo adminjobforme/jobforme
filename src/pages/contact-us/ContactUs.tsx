@@ -4,7 +4,7 @@ import { Featured } from '../../icons/home-icons';
 import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
 const ContactUs = () => {
   return (
-    <div className='' id='contact-us'>
+    <div className='d-flex flex-column' id='contact-us'>
 
         <section className='d-flex flex-column' id='contact-us-a'>
             <div className='d-flex flex-column align-items-center justify-content-center w-100 h-100 contact-us-content'>

@@ -16,7 +16,7 @@ const Services = () => {
             </div>
         </section>
         <section id='services-b'>
-          <div className='d-flex h-50 w-100'>
+          <div className='d-flex h-50 w-100 flex-column flex-lg-row'>
             <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
               <h3>
                 Interview Preparation
@@ -33,7 +33,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className='d-flex flex-row-reverse h-50 w-100'>
+          <div className='d-flex flex-column flex-lg-row-reverse h-50 w-100'>
             <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
               <h3>
                 Career Development
@@ -51,7 +51,7 @@ const Services = () => {
           </div>
         </section>
         <section id='services-c'>
-          <div className='d-flex h-50 w-100'>
+          <div className='d-flex flex-column flex-lg-row h-50 w-100'>
             <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
               <h3>
                 CV and Cover Letter 
@@ -68,7 +68,7 @@ const Services = () => {
             </div>
           </div>
 
-          <div className='d-flex flex-row-reverse h-50 w-100'>
+          <div className='d-flex flex-column flex-lg-row-reverse h-50 w-100'>
               <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
                 <h3>
                   LinkedIn Optimisation
