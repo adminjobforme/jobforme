@@ -2,6 +2,7 @@ import { Form, InputGroup } from 'react-bootstrap';
 import './ContactUs.css';
 import { Featured } from '../../icons/home-icons';
 import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
+import { Email, Phone } from '../../icons/contact-us';
 const ContactUs = () => {
   return (
     <div className='d-flex flex-column' id='contact-us'>
@@ -78,37 +79,27 @@ const ContactUs = () => {
 
         <section className='d-flex flex-column justify-content-center align-items-center pt-5' id='contact-us-d'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Still Not satisfied, contact us through these options.</h3>
-                <div className='h-75 w-75 row row-cols-1 row-cols-lg-3'>
-                    <div className='col'>
+                <div className='h-75 w-100 d-flex flex-wrap justify-content-center align-items-center'>
+                    <div className='w-25'>
                         <div className='d-flex align-items-center'>
-                            <Featured/>
-                            <h6 className='fw-bold h-100'>Chat</h6>
+                            <Phone/>
+                            <h6 className='fw-bold h-100 mx-3'>Phone</h6>
                         </div>
-                        <div className='h-50 d-flex align-items-center'>
-                            <p >Some dummy text to fill space</p>
+                        <div className='h-50 d-flex align-items-center mt-2'>
+                            <p>Phone us at <a href='tel:+353894226543' className='text-decoration-none'>+353894226543</a></p>
                         </div>
-
                     </div>
-                    <div className='col'>
+
+                    <div className='w-25'>
                         <div className='d-flex align-items-center'>
-                            <Featured/>
-                            <h6 className='fw-bold h-100'>Chat</h6>
+                            <Email/>
+                            <h6 className='fw-bold h-100 mx-3'>Email</h6>
                         </div>
-                        <div className='h-50 d-flex align-items-center'>
-                            <p >Some dummy text to fill space</p>
+                        <div className='h-50 d-flex align-items-center mt-2'>
+                            <p>email us at <a href='mailto:support@jobforme.ie' className='text-decoration-none'>support@jobforme.ie</a></p>
                         </div>
-
                     </div>
-                    <div className='col'>
-                        <div className='d-flex align-items-center'>
-                            <Featured/>
-                            <h6 className='fw-bold h-100'>Chat</h6>
-                        </div>
-                        <div className='h-50 d-flex align-items-center'>
-                            <p >Some dummy text to fill space</p>
-                        </div>
 
-                    </div>
                 </div>
         </section>
     </div>
