@@ -9,8 +9,12 @@ import TrackOrder from './pages/track-order/TrackOrder';
 import Checkout from './pages/checkout/Checkout';
 import Services from './pages/services/Services';
 import TermsAndConditions from './pages/terms-and-conditions/TermsAndConditions';
+import Success from './pages/success/Success';
+import Cancel from './pages/cancel/Cancel';
+
 
 function App() {
+
   return (
     <div className="App">
       <Navbar/>
@@ -22,6 +26,8 @@ function App() {
         <Route path='/track-order' element={<TrackOrder/>}/>
         <Route path='/checkout' element={<Checkout/>}/>
         <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
+        <Route path='/success' element={<Success/>}/>
+        <Route path='/cancel' element={<Cancel/>}/>
       </Routes>
       <Footer/>
     </div>

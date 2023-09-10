@@ -1,6 +1,5 @@
 import { Button } from 'react-bootstrap';
 import './Services.css';
-import { CareerScene, CvScene, InterviewScene, LinkedinScene } from '../../icons/services';
 import careerScene from '../../images/services/careerPlan.png';
 import cvScene from '../../images/services/cv.png';
 import interviewScene from '../../images/services/interview.png';

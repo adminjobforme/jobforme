@@ -1,6 +1,6 @@
-import { HomeServiceItemModel } from '../../shared/home-service-model';
 import { Cv, Career, CoverLetter, Interview, JobHunting, LinkedIn, Featured,  } from '../../icons/home-icons';
-import { HomeCardModel } from '../../shared/home-card-model';
+import { HomeCardModel } from '../../shared/models/home-card-model';
+import { HomeServiceItemModel } from '../../shared/models/home-service-model';
 
 export const homeServices: HomeServiceItemModel[] = [
     {icon: Cv, subheader: 'CV/Resume Service', text: 'Professional CV writing & reviewing service', key: 1},

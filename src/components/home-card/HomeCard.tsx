@@ -1,5 +1,5 @@
 import { Edit, Featured, Web } from '../../icons/home-icons';
-import { HomeCardModel } from '../../shared/home-card-model';
+import { HomeCardModel } from '../../shared/models/home-card-model';
 import './HomeCard.css';
 
 const HomeCard = (homeCardModel: HomeCardModel) => {

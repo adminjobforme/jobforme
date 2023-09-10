@@ -2,7 +2,7 @@ import { Form } from 'react-bootstrap';
 import HomeCard from '../../components/home-card/HomeCard';
 import './Home.css';
 import { homeCardService, homeServices } from './home-service';
-import { HomeCardModel } from '../../shared/home-card-model';
+import { HomeCardModel } from '../../shared/models/home-card-model';
 
 const Home = () => {
     return(

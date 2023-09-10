@@ -1,6 +1,5 @@
 import { Form, InputGroup } from 'react-bootstrap';
 import './ContactUs.css';
-import { Featured } from '../../icons/home-icons';
 import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
 import { Email, Phone } from '../../icons/contact-us';
 const ContactUs = () => {

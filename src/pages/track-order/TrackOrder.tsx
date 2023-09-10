@@ -1,6 +1,5 @@
 import { Form, InputGroup } from 'react-bootstrap';
 import './TrackOrder.css';
-import { Spinner } from '../../icons/track-order';
 
 const TrackOrder = () => {
   return (

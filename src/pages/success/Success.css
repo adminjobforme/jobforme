@@ -1,0 +1,10 @@
+#success-main {
+    min-height: 79vh;
+    min-width: 100vw;
+}
+
+#success-icon {
+    width: 20vw;
+    height: 20vh;
+    color: hsl(154, 75%, 45%);
+}
