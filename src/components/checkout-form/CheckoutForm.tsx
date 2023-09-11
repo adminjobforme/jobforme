@@ -20,6 +20,7 @@ const CheckoutForm = () => {
   const [product, setProduct] = useState<ProductModel>(checkoutItems[0]);
   const [option, setOption] = useState<string>('0');
   const [displayOption, setDisplayOption] = useState<boolean>(true);
+  const [disableButton, setDisableButton] = useState<boolean>(false);
  
   const ref = useRef<FormOptionsModel>({cv: null, coverLetter: null, linkedIn: null});
   const [fname, setFname] = useState<string>('');
@@ -37,7 +38,7 @@ const CheckoutForm = () => {
   }
 
   const handleCheckout = async () => { 
-    // 1. disable button if form not filled in fully (validationForm function)
+    await setDisableButton(true);
     // 2. loading spinners for async data //useState hook for loading state from parent 
     // 3. remove secrets and set in environment // github actions ci/cd work
     // 4. finalise database and bucket names // background work - probably just orders for both
@@ -147,7 +148,7 @@ const CheckoutForm = () => {
             {displayOption ? <FormOptions ref={ref} key={option} option={option}/> : (<></>)}
 
             <div className='d-flex w-100 justify-content-center'>
-                <Button className='btn-ternary w-25' onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
+                <Button className='btn-ternary w-25' disabled={disableButton} onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
                     Checkout
                 </Button>
             </div>
