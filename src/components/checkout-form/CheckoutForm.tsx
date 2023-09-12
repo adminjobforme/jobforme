@@ -40,8 +40,6 @@ const CheckoutForm = () => {
   const handleCheckout = async () => { 
     await setDisableButton(true);
     // 2. loading spinners for async data //useState hook for loading state from parent 
-    // 3. remove secrets and set in environment // github actions ci/cd work
-    // 4. finalise database and bucket names // background work - probably just orders for both
 
     const refFileUploads: FileUploadModel = {
         cv: ref.current.cv?.files? ref.current.cv?.files[0] : undefined,

@@ -17,6 +17,7 @@ import * as admin from "firebase-admin";
 import {updateOrderStatus, updatePaymentStatus} from "./utils/firestore-utils";
 import {PaymentStatus} from "./enum/payment-status";
 import {OrderStatus} from "./enum/order-status";
+import {sendMessage} from "./mail/mail-service";
 
 admin.initializeApp();
 const db = functions.config().TEST_DB;
@@ -93,5 +94,10 @@ export const stripeWebhook = functions.https
 export const setOrderStatus = functions.https.onCall(
   (data: UpdateOrder, context) => {
     updateOrderStatus(data.orderId, data.orderStatus, db);
+  });
+
+export const sendMail = functions.https.onRequest(
+  (request, response) => {
+    sendMessage();
   });
 
