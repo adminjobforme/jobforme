@@ -62,7 +62,11 @@ const HomeCard = (homeCardModel: HomeCardModel) => {
             </div>
 
             <div className='d-flex align-items-center justify-content-center p-2' id='homecard-button-div'>
-                <button className={homeCardModel.mostPopular? 'homecard-btn-special' : 'homecard-btn-normal'} id='homecard-button'>Get Started</button>
+                <a href='/checkout' className='w-100'>
+                    <button className={homeCardModel.mostPopular? 'homecard-btn-special' : 'homecard-btn-normal'} id='homecard-button'>
+                        Get Started
+                    </button>
+                </a>
             </div>
         </div>
     </div>

@@ -127,21 +127,24 @@ const CheckoutForm = () => {
             </div>
 
             <div className='mb-3'>
-            <Form.Select onChange={(e) => handleFormOnChange(e)} aria-label="service selector">
-                <label>-- Select a Service --</label>
-                <option disabled>-- Single Services --</option>
-                <option value="0">CV</option>
-                <option value="1">Cover Letter</option>
-                <option value="2">LinkedIn Review</option>
-                <option value="3">Interview Preparation</option>
-                <option value="4">Career Development Plan</option>
-                <option disabled>-- Double Services --</option>
-                <option value="5">CV and Cover Letter</option>
-                <option value="6">CV and LinkedIn Profile</option>
-                <option value="7">Cover Letter and LinkedIn</option>
-                <option disabled>-- Triple Services --</option>
-                <option value="8">CV, Cover Letter and LinkedIn</option>
-            </Form.Select>
+            <Form.Group>
+                <Form.Label className='text-center w-100'>Select a Service</Form.Label>
+                <Form.Select onChange={(e) => handleFormOnChange(e)} aria-label="service selector">
+                    <label>-- Select a Service --</label>
+                    <option disabled>-- Single Services --</option>
+                    <option value="0">CV</option>
+                    <option value="1">Cover Letter</option>
+                    <option value="2">LinkedIn Review</option>
+                    <option value="3">Interview Preparation</option>
+                    <option value="4">Career Development Plan</option>
+                    <option disabled>-- Double Services --</option>
+                    <option value="5">CV and Cover Letter</option>
+                    <option value="6">CV and LinkedIn Profile</option>
+                    <option value="7">Cover Letter and LinkedIn</option>
+                    <option disabled>-- Triple Services --</option>
+                    <option value="8">CV, Cover Letter and LinkedIn</option>
+                </Form.Select>
+            </Form.Group>
             </div>
             {displayOption ? <FormOptions ref={ref} key={option} option={option}/> : (<></>)}
 
