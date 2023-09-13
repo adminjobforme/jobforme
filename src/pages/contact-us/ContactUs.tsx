@@ -4,6 +4,8 @@ import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
 import { Email, Phone } from '../../icons/contact-us';
 import { sendSupportMail } from '../../shared/utils/firebase-functions';
 import { useState } from 'react';
+import { faqOptions } from './faq-options';
+
 const ContactUs = () => {
 
   const [name, setName] = useState<string>('');
@@ -46,19 +48,16 @@ const ContactUs = () => {
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-b'>
-                <h3 className='fw-bold d-flex align-items-center h-25'>Frequently Asked Questions</h3>
-                <div className='h-75 w-75'>
-                    <FaqDropdown/>
-                    <FaqDropdown/>
-                    <FaqDropdown/>
-                    <FaqDropdown/>
-                    <FaqDropdown/>
-                    <FaqDropdown/>
+                <h3 className='fw-bold d-flex align-items-center h-25 mt-5'>Frequently Asked Questions</h3>
+                <div className=' d-flex flex-column h-75 w-75 mt-5'>
+                    {faqOptions.map((option, index) => {return(
+                        <FaqDropdown question={option.question} info={option.info} key={index}/>
+                    )})}
                 </div>
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-c'>
-                <h3 className='fw-bold d-flex align-items-center h-25'>Still Not able to find the answers? Send us a message</h3>
+                <h3 className='fw-bold d-flex align-items-center justify-content-center w-75 h-25'>Still Not able to find the answers? Send us a message</h3>
                 <div className='h-75 w-75 d-flex flex-column align-items-center justify-content-around'>
                     <Form.Group className='h-100 d-flex flex-column align-items-center w-75'>
                         <Form.Control
@@ -89,20 +88,22 @@ const ContactUs = () => {
                         placeholder="Question"
                         aria-label="Contact Us Description"
                         aria-describedby="basic-addon2"
-                        className='rounded my-2 h-50'
+                        className='rounded my-2 h-25'
                         type='text'
+                        as='textarea'
+                        rows={3}
                         onChange={(e) => setQuestion(e.target.value)}
                         />
-                        <Button className='btn-ternary w-50' type='submit' id='track-order-submit' disabled={disabledButton} onClick={(e) => {isValidForm() ? handleSubmit() : alert('please complete the form')}}>
+                        <Button className='btn-ternary w-50' type='submit' id='track-order-submit' disabled={disabledButton} onClick={() => {isValidForm() ? handleSubmit() : alert('please complete the form')}}>
                             {disabledButton ? 'Message Sent!' : 'Submit'}
                         </Button>
-                    </Form.Group>  
+                    </Form.Group>
                 </div>
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center pt-5' id='contact-us-d'>
-                <h3 className='fw-bold d-flex align-items-center h-25'>Still Not satisfied, contact us through these options.</h3>
-                <div className='h-100 w-100 d-flex flex-sm-column flex-lg-row justify-content-center align-items-center'>
+                <h3 className='fw-bold d-flex align-items-center justify-content-center w-75 h-25'>Still Not satisfied, contact us through these options.</h3>
+                <div className='h-100 w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center'>
                     <div className='w-25 my-2'>
                         <div className='d-flex align-items-center'>
                             <Phone/>
