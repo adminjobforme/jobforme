@@ -18,9 +18,10 @@ import {updateOrderStatus, updatePaymentStatus} from "./utils/firestore-utils";
 import {PaymentStatus} from "./enum/payment-status";
 import {OrderStatus} from "./enum/order-status";
 import {sendMessage} from "./mail/mail-service";
+import {SupportMessage} from "./models/support-message";
 
 admin.initializeApp();
-const db = functions.config().TEST_DB;
+const db = functions.config().db.test;
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
@@ -70,6 +71,10 @@ export const stripeWebhook = functions.https
     // TODO: 1. update payment status and order status :)
     // 3. Send email to tomek. 4. Send email to customer
 
+    // 1. need to add payment_intent.failed and remove order on fail
+    // need to add metadata to payment intent to achieve this
+    // can also switch from using checkout session to pi_suceeded event
+
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
       checkoutEvent = event.data;
@@ -79,6 +84,7 @@ export const stripeWebhook = functions.https
       case "paid":
         await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
         await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
+        // send email here with order details
         break;
       default:
         await updatePaymentStatus(orderId, PaymentStatus.FAILED, db);
@@ -89,15 +95,38 @@ export const stripeWebhook = functions.https
     default:
       logger.log(`Unhandled event type ${event.type}`);
     }
+
+    response.send("webhook received!");
   });
 
 export const setOrderStatus = functions.https.onCall(
-  (data: UpdateOrder, context) => {
-    updateOrderStatus(data.orderId, data.orderStatus, db);
+  async (data: UpdateOrder, context) => {
+    try {
+      await updateOrderStatus(data.orderId, data.orderStatus, db);
+    } catch (err) {
+      return {
+        statusCode: 400,
+        error: err,
+      };
+    }
+    return {
+      statusCode: 200,
+    };
   });
 
-export const sendMail = functions.https.onRequest(
-  (request, response) => {
-    sendMessage();
+export const sendSupportMail = functions.https.onCall(
+  (data: SupportMessage, context) => {
+    sendMessage(
+      "help@jobforme.ie",
+      functions.config().help.mail,
+      data.fname,
+      data.recipient,
+      data.phone,
+      data.question
+    );
+
+    return {
+      statusCode: 200,
+    };
   });
 

@@ -1,8 +1,36 @@
-import { Form, InputGroup } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import './ContactUs.css';
 import FaqDropdown from '../../components/faq-dropdown/FaqDropdown';
 import { Email, Phone } from '../../icons/contact-us';
+import { sendSupportMail } from '../../shared/utils/firebase-functions';
+import { useState } from 'react';
 const ContactUs = () => {
+
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
+  const [question, setQuestion] = useState<string>('');
+  const [disabledButton, setDisabledButton] = useState<boolean>(false);
+
+  const handleSubmit = async () => {
+    setDisabledButton(true)
+    await sendSupportMail({
+        fname: name,
+        recipient: email,
+        phone: phone,
+        question: question,
+    })
+  }
+
+  const isValidForm = (): boolean => {
+    if(name  === '' || phone === '' || question === '' || !isValidEmail(email)) return false;
+    return true;
+  }
+
+  const isValidEmail = (address: string): boolean => {
+    return /\S+@\S+\.\S+/.test(address);
+  }
+
   return (
     <div className='d-flex flex-column' id='contact-us'>
 
@@ -32,54 +60,50 @@ const ContactUs = () => {
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-c'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Still Not able to find the answers? Send us a message</h3>
                 <div className='h-75 w-75 d-flex flex-column align-items-center justify-content-around'>
-                    <InputGroup className='h-100'>
-                        <div className="row row-cols-1 row-cols-md-2 w-100">
-                            <div className='col'>
-                            <Form.Control
-                            placeholder="Full Name"
-                            aria-label="Contact Us Name"
-                            aria-describedby="basic-addon2"
-                            className='rounded mx-3'
-                            />
-                            </div>
-                            <div className='col'>
-                            <Form.Control
-                            placeholder="Email"
-                            aria-label="Contact Us Email"
-                            aria-describedby="basic-addon2"
-                            className='rounded mx-3'
-                            />
-                            </div>
-                        </div>
-                        <div className='row row-cols-1 w-100'>
-                            <div className='col p-0 w-50'>
-                                <Form.Control
-                                placeholder="Phone Number..."
-                                aria-label="Track Order Input"
-                                aria-describedby="basic-addon2"
-                                className='rounded mx-3'
-                                />
-                            </div>
-                            <div className='col p-0 d-flex pb-3 w-100'>
-                                <Form.Control
-                                placeholder="Description..."
-                                aria-label="Track Order Input"
-                                aria-describedby="basic-addon2"
-                                className='rounded mx-3 h-100'
-                                />
-                            </div>
-                        </div>
-                    </InputGroup>
-                    <button className='btn-ternary w-25' id='track-order-submit'>
-                        Submit
-                    </button>  
+                    <Form.Group className='h-100 d-flex flex-column align-items-center w-75'>
+                        <Form.Control
+                        placeholder="Name"
+                        aria-label="Contact Us Name"
+                        aria-describedby="basic-addon2"
+                        type='name'
+                        className='rounded my-2'
+                        onChange={(e) => setName(e.target.value)}
+                        />
+                        <Form.Control
+                        placeholder="Email"
+                        aria-label="Contact Us Email"
+                        aria-describedby="basic-addon2"
+                        type='email'
+                        className='rounded my-2'
+                        onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <Form.Control
+                        placeholder="Phone Number"
+                        aria-label="Contact Us Phone"
+                        aria-describedby="basic-addon2"
+                        type='tel'
+                        className='rounded my-2'
+                        onChange={(e) => setPhone(e.target.value)}
+                        />
+                        <Form.Control
+                        placeholder="Question"
+                        aria-label="Contact Us Description"
+                        aria-describedby="basic-addon2"
+                        className='rounded my-2 h-50'
+                        type='text'
+                        onChange={(e) => setQuestion(e.target.value)}
+                        />
+                        <Button className='btn-ternary w-50' type='submit' id='track-order-submit' disabled={disabledButton} onClick={(e) => {isValidForm() ? handleSubmit() : alert('please complete the form')}}>
+                            {disabledButton ? 'Message Sent!' : 'Submit'}
+                        </Button>
+                    </Form.Group>  
                 </div>
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center pt-5' id='contact-us-d'>
                 <h3 className='fw-bold d-flex align-items-center h-25'>Still Not satisfied, contact us through these options.</h3>
-                <div className='h-75 w-100 d-flex flex-wrap justify-content-center align-items-center'>
-                    <div className='w-25'>
+                <div className='h-100 w-100 d-flex flex-sm-column flex-lg-row justify-content-center align-items-center'>
+                    <div className='w-25 my-2'>
                         <div className='d-flex align-items-center'>
                             <Phone/>
                             <h6 className='fw-bold h-100 mx-3'>Phone</h6>
@@ -89,7 +113,7 @@ const ContactUs = () => {
                         </div>
                     </div>
 
-                    <div className='w-25'>
+                    <div className='w-25 my-2'>
                         <div className='d-flex align-items-center'>
                             <Email/>
                             <h6 className='fw-bold h-100 mx-3'>Email</h6>

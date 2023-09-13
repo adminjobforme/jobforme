@@ -1,3 +1,7 @@
 #faqdropdown {
     min-height: 51px;
 }
+
+#faqdropdown-button {
+    cursor: pointer;
+}

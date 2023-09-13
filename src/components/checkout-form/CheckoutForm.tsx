@@ -1,6 +1,6 @@
 import { Button, Form } from 'react-bootstrap';
 import './CheckoutForm.css';
-import { createStripeCheckout } from '../../shared/utils/stripe-utils';
+import { createStripeCheckout } from '../../shared/utils/firebase-functions';
 import { checkoutItems } from './checkout-items';
 import { useRef, useState } from 'react';
 import { ProductModel } from '../../shared/models/product-model';

@@ -3,40 +3,87 @@ import * as fs from "fs";
 import {promisify} from "util";
 import * as handlebars from "handlebars";
 import * as path from "path";
-import * as functions from "firebase-functions";
-
 const readFile = promisify(fs.readFile);
 
-const helpTransporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "help@jobforme.ie",
-    pass: functions.config().HELP_EMAIL_PASS as string,
-  },
-});
-
-const mailOptions = {
-  from: "help@jobforme.ie",
-  to: "j.oyinlola95@gmail.com",
-  subject: "Subject",
-  text: "Email content",
+const transporter = (email: string, pass: string) => {
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: email,
+      pass: pass,
+    },
+  });
 };
 
+const logoAttachment = {
+  filename: "logo-multi.png",
+  path: path.resolve(__dirname, "templates/support/logo-multi.png"),
+  cid: "jobforme-logo",
+};
 
-export const sendMessage = async () => {
+export const sendMessage =
+async (email: string,
+  pass: string,
+  fname: string,
+  recipient: string,
+  phone: string,
+  question: string) => {
+  const mailTransporter = transporter(email, pass);
+  // extract this
   const html = await readFile(
     path.resolve(__dirname, "templates/support/support.html"),
     "utf8"
   );
   const template = handlebars.compile(html);
   const data = {
-    username: "Steven",
+    username: fname,
   };
   const htmltosend = template(data);
-  helpTransporter.sendMail({...mailOptions, html: htmltosend}, (err, info) => {
-    if (err) console.log(err);
-    else {
-      console.log("Email sent" + info.response);
-    }
-  });
+  // up to here and make optional
+  mailTransporter.sendMail(
+    {
+      from: email,
+      to: recipient,
+      subject: "Subject",
+      text: "Email content",
+      html: htmltosend,
+      attachments: [logoAttachment],
+    },
+    (err, info) => {
+      if (err) console.log(err);
+      else {
+        console.log("Email sent" + info.response);
+      }
+    });
+
+  // extract this
+  const htmlToReceive = await readFile(
+    path.resolve(__dirname, "templates/support/supportReceive.html"),
+    "utf8"
+  );
+  const templateToReceive = handlebars.compile(htmlToReceive);
+  const dataToReceive = {
+    username: fname,
+    phone: phone,
+    email: recipient,
+    question: question,
+  };
+  const htmlReceive = templateToReceive(dataToReceive);
+  // up to here and make optional
+
+  mailTransporter.sendMail(
+    {
+      from: email,
+      to: "admin@jobforme.ie",
+      subject: "Question received!",
+      text: "Random text",
+      html: htmlReceive,
+      attachments: [logoAttachment],
+    },
+    (err, info) => {
+      if (err) console.log(err);
+      else {
+        console.log("Email sent" + info.response);
+      }
+    });
 };
