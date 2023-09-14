@@ -57,7 +57,7 @@ const ContactUs = () => {
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center' id='contact-us-c'>
-                <h3 className='fw-bold d-flex align-items-center justify-content-center w-75 h-25'>Still Not able to find the answers? Send us a message</h3>
+                <h3 className='fw-bold d-flex align-items-center justify-content-center text-center w-75 h-25'>Still Not able to find the answers? <br/> Send us a message</h3>
                 <div className='h-75 w-75 d-flex flex-column align-items-center justify-content-around'>
                     <Form.Group className='h-100 d-flex flex-column align-items-center w-75'>
                         <Form.Control
@@ -102,9 +102,9 @@ const ContactUs = () => {
         </section>
 
         <section className='d-flex flex-column justify-content-center align-items-center pt-5' id='contact-us-d'>
-                <h3 className='fw-bold d-flex align-items-center justify-content-center w-75 h-25'>Still Not satisfied, contact us through these options.</h3>
+                <h3 className='fw-bold d-flex align-items-center justify-content-center mb-3 w-75 h-25'>Still Not satisfied, contact us through these options.</h3>
                 <div className='h-100 w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center'>
-                    <div className='w-25 my-2'>
+                    <div className='w-50 my-2 d-flex flex-column align-items-center justify-content-center'>
                         <div className='d-flex align-items-center'>
                             <Phone/>
                             <h6 className='fw-bold h-100 mx-3'>Phone</h6>
@@ -114,7 +114,7 @@ const ContactUs = () => {
                         </div>
                     </div>
 
-                    <div className='w-25 my-2'>
+                    <div className='w-50 my-2 d-flex flex-column align-items-center justify-content-center'>
                         <div className='d-flex align-items-center'>
                             <Email/>
                             <h6 className='fw-bold h-100 mx-3'>Email</h6>

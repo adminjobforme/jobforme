@@ -14,10 +14,14 @@ import * as Stripe from "stripe";
 import {StripePayment} from "./models/stripe-payment";
 import {v4 as uuid4} from "uuid";
 import * as admin from "firebase-admin";
-import {updateOrderStatus, updatePaymentStatus} from "./utils/firestore-utils";
+import {
+  deleteOrder,
+  updateOrderStatus,
+  updatePaymentStatus,
+} from "./utils/firestore-utils";
 import {PaymentStatus} from "./enum/payment-status";
 import {OrderStatus} from "./enum/order-status";
-import {sendMessage} from "./mail/mail-service";
+import {sendSupportMessage} from "./mail/mail-service";
 import {SupportMessage} from "./models/support-message";
 
 admin.initializeApp();
@@ -34,8 +38,10 @@ export const createStripeCheckout = functions.https.onCall(
 
     logger.log("Stripe initialized successfully!");
     const orderId = uuid4();
+    const dt = new Date().getTime();
     const session = await stripe.checkout.sessions.create({
       client_reference_id: orderId,
+      expires_at: (dt + (30*60*1000)),
       payment_method_types: ["card"],
       mode: "payment",
       success_url: "https://jobforme-d9672.web.app/success",
@@ -50,6 +56,9 @@ export const createStripeCheckout = functions.https.onCall(
           },
         },
       }],
+      metadata: {
+        orderId: orderId,
+      },
     });
 
     logger.log(`url: ${session.url}`);
@@ -64,7 +73,7 @@ export const createStripeCheckout = functions.https.onCall(
 export const stripeWebhook = functions.https
   .onRequest(async (request, response) => {
     const event = request.body;
-    let checkoutEvent;
+    const checkoutEvent = event.data.object;
     let orderId;
 
     // Handle Order
@@ -77,20 +86,23 @@ export const stripeWebhook = functions.https
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
-      checkoutEvent = event.data;
-      orderId = checkoutEvent.object.client_reference_id as string;
-      logger.log(orderId);
+      orderId = checkoutEvent.client_reference_id as string;
+      logger.log(checkoutEvent.expiret_at);
       switch (checkoutEvent.object.payment_status as string) {
       case "paid":
         await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
         await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
-        // send email here with order details
+        // send email here with order details - complete no-reply tomorrow
         break;
       default:
         await updatePaymentStatus(orderId, PaymentStatus.FAILED, db);
         await updateOrderStatus(orderId, OrderStatus.TERMINATED, db);
         break;
       }
+      break;
+    case "checkout.session.expired":
+      orderId = checkoutEvent.client_reference_id as string;
+      await deleteOrder(orderId, db);
       break;
     default:
       logger.log(`Unhandled event type ${event.type}`);
@@ -116,7 +128,7 @@ export const setOrderStatus = functions.https.onCall(
 
 export const sendSupportMail = functions.https.onCall(
   (data: SupportMessage, context) => {
-    sendMessage(
+    sendSupportMessage(
       "help@jobforme.ie",
       functions.config().help.mail,
       data.fname,

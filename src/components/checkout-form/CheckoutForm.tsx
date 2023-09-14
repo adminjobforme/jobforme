@@ -66,7 +66,7 @@ const CheckoutForm = () => {
           phone: phone,
           files: refFileUploads,
           link: ref.current?.linkedIn?.value || ''
-        }, process.env.REACT_APP_TEST_DB as string).catch((e) => {console.log(e)});
+        }).catch((e) => {console.log(e)});
         window.location.assign(link)
     }).catch((e) => {console.log(e)})
   }
@@ -150,7 +150,7 @@ const CheckoutForm = () => {
 
             <div className='d-flex w-100 justify-content-center'>
                 <Button className='btn-ternary w-25' disabled={disableButton} onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
-                    Checkout
+                    { disableButton ? <div className='spinner-border text-light'/> : 'Checkout'}
                 </Button>
             </div>
 

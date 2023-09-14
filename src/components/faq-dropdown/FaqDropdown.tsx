@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './FaqDropdown.css';
 import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai';
+import { IconContext } from 'react-icons';
 
 interface ChildProps {
   question: string,
@@ -13,8 +14,15 @@ const FaqDropdown = (props: ChildProps) => {
   return (
     <div className='d-flex flex-column py-2' id='faqdropdown'>
         <div className='pb-1 border-bottom d-flex align-items-center justify-content-between h-100' id='faqdropdown-button' onClick={() => {setState(!state)}}>
-            <h5 className='fw-bold mt-2'>{question}</h5>
-            {state? <AiOutlineMinus size='30px'/> : <AiOutlinePlus size='30px'/>}
+            <h6 className='fw-bold mt-2 w-75'>{question}</h6>
+            {state? 
+            <IconContext.Provider value={{size: '30px'}}>
+              <AiOutlineMinus/>
+            </IconContext.Provider>: 
+            <IconContext.Provider value={{size: '30px'}}>
+              <AiOutlinePlus/>
+            </IconContext.Provider>
+            }
         </div>
         <div className={state? 'pt-1' : 'd-none'} id='faqdropdown-info'>
                 <p>

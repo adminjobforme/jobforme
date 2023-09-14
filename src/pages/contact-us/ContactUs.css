@@ -23,11 +23,11 @@
 }
 
 #contact-us-c {
-    height: 100vh;
+    min-height: 70vh;
 }
 
 #contact-us-d {
-    height: 40vh;
+    min-height: 40vh;
 }
 
 

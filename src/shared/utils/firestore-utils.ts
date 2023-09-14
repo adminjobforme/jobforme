@@ -4,14 +4,24 @@ import { bucket, db } from '../../firebase';
 import { Order } from '../models/order-model';
 import { FileUploadModel } from '../models/file-upload-model';
 
-export const addOrder = async (order: Order, collection: string) => {
+const curDb = process.env.REACT_APP_TEST_DB as string
+
+export const getOrder = async (orderId: string) => {
+    const docRef = admin.doc(db, curDb, orderId) 
+    const order = await admin.getDoc(docRef)
+    .then(snapshot => {return snapshot.data()})
+    .catch((e) => console.log(e))
+    return order;
+}
+
+export const addOrder = async (order: Order) => {
     let storageRefs;
     if(order.files != undefined){
-        storageRefs = await uploadFiles(order, order.files, process.env.TEST_DB as string || process.env.REACT_APP_TEST_DB as string)
+        storageRefs = await uploadFiles(order, order.files, curDb)
         .then((storageRefs) => {return storageRefs})
         .catch((e) => {console.log(e)})
 
-        await admin.setDoc(admin.doc(db, collection, order.orderId),({
+        await admin.setDoc(admin.doc(db, curDb, order.orderId),({
             orderId: order.orderId,
             firstname: order.firstname,
             surname: order.surname,
@@ -26,7 +36,7 @@ export const addOrder = async (order: Order, collection: string) => {
             created: order.created
         }))
     }else {
-        await admin.setDoc(admin.doc(db, collection, order.orderId),({
+        await admin.setDoc(admin.doc(db, curDb, order.orderId),({
             orderId: order.orderId,
             firstname: order.firstname,
             surname: order.surname,

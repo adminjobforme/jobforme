@@ -21,7 +21,29 @@ const logoAttachment = {
   cid: "jobforme-logo",
 };
 
-export const sendMessage =
+const createHtmlToSend = async (
+  dir: string,
+  fname: string,
+  recipient?: string,
+  phone?: string,
+  question?: string ) => {
+  const html = await readFile(
+    path.resolve(__dirname, dir),
+    "utf8"
+  );
+  const template = handlebars.compile(html);
+  const data = {
+    username: fname,
+    phone: phone,
+    email: recipient,
+    question: question,
+  };
+  return template(data);
+};
+
+
+// support message
+export const sendSupportMessage =
 async (email: string,
   pass: string,
   fname: string,
@@ -29,23 +51,15 @@ async (email: string,
   phone: string,
   question: string) => {
   const mailTransporter = transporter(email, pass);
-  // extract this
-  const html = await readFile(
-    path.resolve(__dirname, "templates/support/support.html"),
-    "utf8"
-  );
-  const template = handlebars.compile(html);
-  const data = {
-    username: fname,
-  };
-  const htmltosend = template(data);
-  // up to here and make optional
+  const htmltosend =
+  await createHtmlToSend("templates/support/support.html", fname);
+
   mailTransporter.sendMail(
     {
       from: email,
       to: recipient,
       subject: "Subject",
-      text: "Email content",
+      text: "We have received your query!",
       html: htmltosend,
       attachments: [logoAttachment],
     },
@@ -56,27 +70,20 @@ async (email: string,
       }
     });
 
-  // extract this
-  const htmlToReceive = await readFile(
-    path.resolve(__dirname, "templates/support/supportReceive.html"),
-    "utf8"
+  const htmlReceive = await createHtmlToSend(
+    "templates/support/supportReceive.html",
+    fname,
+    recipient,
+    phone,
+    question
   );
-  const templateToReceive = handlebars.compile(htmlToReceive);
-  const dataToReceive = {
-    username: fname,
-    phone: phone,
-    email: recipient,
-    question: question,
-  };
-  const htmlReceive = templateToReceive(dataToReceive);
-  // up to here and make optional
 
   mailTransporter.sendMail(
     {
       from: email,
       to: "admin@jobforme.ie",
-      subject: "Question received!",
-      text: "Random text",
+      subject: "Query received!",
+      text: "A query has been received!",
       html: htmlReceive,
       attachments: [logoAttachment],
     },

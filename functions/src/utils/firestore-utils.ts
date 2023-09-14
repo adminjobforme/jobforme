@@ -21,3 +21,8 @@ export const updateOrderStatus =
           logger.log(e);
         });
     };
+
+export const deleteOrder =
+    async (orderId: string, db: string) => {
+      await admin.firestore().collection(db).doc(orderId).delete();
+    };

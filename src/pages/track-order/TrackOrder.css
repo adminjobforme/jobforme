@@ -37,5 +37,11 @@
 
 #track-order-spinner {
     border-radius: 100%;
+    height: 39px;
+    width: 39px;
     color: #169B62;
+}
+
+#track-order-info {
+    height: 40vh;
 }
