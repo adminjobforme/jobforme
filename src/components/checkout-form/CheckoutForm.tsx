@@ -130,7 +130,6 @@ const CheckoutForm = () => {
             <Form.Group>
                 <Form.Label className='text-center w-100'>Select a Service</Form.Label>
                 <Form.Select onChange={(e) => handleFormOnChange(e)} aria-label="service selector">
-                    <label>-- Select a Service --</label>
                     <option disabled>-- Single Services --</option>
                     <option value="0">CV</option>
                     <option value="1">Cover Letter</option>

@@ -12,12 +12,10 @@ const FormOptions = forwardRef<FormOptionsModel, ChildProps>((props: ChildProps,
         case '0':{
             return (
             <div className='d-flex flex-column'>
-                <Form>
-                    <Form.Group controlId='formFile' className='mb-3'>
-                        <Form.Label className='text-center w-100'>Upload your CV</Form.Label>
-                        <Form.Control type='file' name='cv' accept='.doc,.docx,.pdf' ref={(r: HTMLInputElement) => (ref as MutableRefObject<FormOptionsModel>).current.cv = r}/>
-                    </Form.Group>
-                </Form>
+                <Form.Group controlId='formFile' className='mb-3'>
+                    <Form.Label className='text-center w-100'>Upload your CV</Form.Label>
+                    <Form.Control type='file' name='cv' accept='.doc,.docx,.pdf' ref={(r: HTMLInputElement) => (ref as MutableRefObject<FormOptionsModel>).current.cv = r}/>
+                </Form.Group>
                 <p>files accepted in .doc .docx, .pdf formats only</p>
             </div>
             );

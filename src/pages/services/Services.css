@@ -22,10 +22,18 @@
 
 #services-b {
     min-height: 100vh;
-    height: 100vh;
 }
 
 #services-c {
     min-height: 100vh;
-    height: 100vh;
+}
+
+#services-image-round {
+    border-radius: 2rem;
+    min-height: 75%;
+    min-width: 70%;
+}
+
+#services-text {
+    width: 90%;
 }

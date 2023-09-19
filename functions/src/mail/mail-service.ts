@@ -3,8 +3,10 @@ import * as fs from "fs";
 import {promisify} from "util";
 import * as handlebars from "handlebars";
 import * as path from "path";
-const readFile = promisify(fs.readFile);
+import {getFile} from "../utils/firebas-storage-utils";
+import {Attachment} from "nodemailer/lib/mailer";
 
+const readFile = promisify(fs.readFile);
 const transporter = (email: string, pass: string) => {
   return nodemailer.createTransport({
     service: "gmail",
@@ -15,7 +17,7 @@ const transporter = (email: string, pass: string) => {
   });
 };
 
-const logoAttachment = {
+const logoAttachment: Attachment = {
   filename: "logo-multi.png",
   path: path.resolve(__dirname, "templates/support/logo-multi.png"),
   cid: "jobforme-logo",
@@ -41,7 +43,6 @@ const createHtmlToSend = async (
   return template(data);
 };
 
-
 // support message
 export const sendSupportMessage =
 async (email: string,
@@ -58,7 +59,7 @@ async (email: string,
     {
       from: email,
       to: recipient,
-      subject: "Subject",
+      subject: "Your Query",
       text: "We have received your query!",
       html: htmltosend,
       attachments: [logoAttachment],
@@ -94,3 +95,103 @@ async (email: string,
       }
     });
 };
+
+// have attachments here for the files
+const createFileAttachments = async (files: string[]):
+Promise<Attachment[]> => {
+  return await Promise.all(files.map(async (file) => {
+    return {
+      path: await getFile(file),
+    };
+  }));
+};
+
+const createReceiptToSend = async (
+  dir: string,
+  name: string,
+  item: string,
+  amount: string,
+  phone: string,
+  email: string ) => {
+  const html = await readFile(
+    path.resolve(__dirname, dir),
+    "utf8"
+  );
+  const template = handlebars.compile(html);
+  const data = {
+    username: name,
+    item: item,
+    amount: amount,
+    phone: phone,
+    email: email,
+  };
+  return template(data);
+};
+
+export const sendNoReplyMessage =
+    async (email: string,
+      pass: string,
+      recipient: string,
+      item: string,
+      amount: number,
+      name: string,
+      phone: string,
+      files?: string[]) => {
+      const mailTransporter = transporter(email, pass);
+
+      const htmlReceipt = await createReceiptToSend( // customer
+        "templates/no-reply/no-reply.html",
+        name,
+        item,
+    amount as unknown as string,
+    phone,
+    recipient
+      );
+
+      const htmlNotif = await createReceiptToSend( // tomek
+        "templates/no-reply/no-reply-receive.html",
+        name,
+        item,
+    amount as unknown as string,
+    phone,
+    recipient
+      );
+
+      // create attachments from file names
+      const fileAttachments = files ?
+        await createFileAttachments(files) : undefined;
+
+      mailTransporter.sendMail(
+        {
+          from: email,
+          to: recipient,
+          subject: "Order received!",
+          text: "Thank you for your order!",
+          html: htmlReceipt,
+          attachments: [logoAttachment],
+        },
+        (err, info) => {
+          if (err) console.log(err);
+          else {
+            console.log("Email sent" + info.response);
+          }
+        });
+
+      mailTransporter.sendMail(
+        {
+          from: email,
+          to: "admin@jobforme.ie",
+          subject: "Order received!",
+          text: "An order has been received!",
+          html: htmlNotif,
+          attachments: fileAttachments ?
+            [logoAttachment, ...fileAttachments] :
+            [logoAttachment], // attachments
+        },
+        (err, info) => {
+          if (err) console.log(err);
+          else {
+            console.log("Email sent" + info.response);
+          }
+        });
+    };

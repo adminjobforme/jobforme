@@ -13,7 +13,6 @@ const Home = () => {
                     <p className='fs-5 text-center text-secondary'>Need help with CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
                     <div className='d-flex mt-5 w-100 align-items-center justify-content-center'>
                         <Form.Select className='btn btn-outline border-dark' aria-label="language selector" id='language-selector'>
-                            <label>-- Select a Service --</label>
                             <option disabled>-- Select a Language ---</option>
                             <option value="1">English</option>
                             <option value="2">Polish</option>

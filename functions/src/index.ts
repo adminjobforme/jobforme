@@ -16,16 +16,19 @@ import {v4 as uuid4} from "uuid";
 import * as admin from "firebase-admin";
 import {
   deleteOrder,
+  getOrder,
   updateOrderStatus,
   updatePaymentStatus,
 } from "./utils/firestore-utils";
 import {PaymentStatus} from "./enum/payment-status";
 import {OrderStatus} from "./enum/order-status";
-import {sendSupportMessage} from "./mail/mail-service";
+import {sendNoReplyMessage, sendSupportMessage} from "./mail/mail-service";
 import {SupportMessage} from "./models/support-message";
+import {Order} from "./models/order";
 
 admin.initializeApp();
 const db = functions.config().db.test;
+
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
@@ -38,10 +41,8 @@ export const createStripeCheckout = functions.https.onCall(
 
     logger.log("Stripe initialized successfully!");
     const orderId = uuid4();
-    const dt = new Date().getTime();
     const session = await stripe.checkout.sessions.create({
       client_reference_id: orderId,
-      expires_at: (dt + (30*60*1000)),
       payment_method_types: ["card"],
       mode: "payment",
       success_url: "https://jobforme-d9672.web.app/success",
@@ -75,6 +76,7 @@ export const stripeWebhook = functions.https
     const event = request.body;
     const checkoutEvent = event.data.object;
     let orderId;
+    let order: Order | void;
 
     // Handle Order
     // TODO: 1. update payment status and order status :)
@@ -87,12 +89,30 @@ export const stripeWebhook = functions.https
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
       orderId = checkoutEvent.client_reference_id as string;
-      logger.log(checkoutEvent.expiret_at);
-      switch (checkoutEvent.object.payment_status as string) {
+      logger.log(checkoutEvent.expires_at);
+      order = await getOrder(orderId, db);
+      logger.log(order);
+      switch (checkoutEvent.payment_status as string) {
       case "paid":
-        await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
-        await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
-        // send email here with order details - complete no-reply tomorrow
+        if (order) {
+          await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
+          await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
+          // this works but needs to be polished - polish and add attachments
+          await sendNoReplyMessage(
+            "no-reply@jobforme.ie",
+            functions.config().noreply.mail,
+            order.email,
+            order.orderType,
+            order.amount,
+            order.firstname + " " + order.surname,
+            order.phone,
+            order.files
+          );
+        } else {
+          logger.error(
+            "order paid for but unable to retrieve order from db" + orderId
+          );
+        }
         break;
       default:
         await updatePaymentStatus(orderId, PaymentStatus.FAILED, db);

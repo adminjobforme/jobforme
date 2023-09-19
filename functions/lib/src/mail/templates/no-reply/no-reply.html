@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="no-reply.css">
+    </head>
+    <body>
+        <section id="header">
+            <h1>
+                Greetings {{username}}!
+            </h1>
+        </section>
+        <section id="body">
+            <p>We have received your order and aim to deliver as soon as possible.</p>
+            <br/>
+            <h3>Thank you for your purchase</h3>
+            <br/>
+        </section>
+        <section id="summary">
+            <p>Order items:</p>
+            <br/>
+            <div id="receipt">
+                <p>{{item}}</p>
+                <p>{{amount}}</p>
+            </div>
+        </section>
+        <section id="footer">
+            <img src="cid:jobforme-logo" alt="JobForMe logo" width="50px" height="50px"/>
+            <strong>JobForMe</strong>
+        </section>
+    </body>
+</html>
