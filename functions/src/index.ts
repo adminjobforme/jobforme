@@ -78,13 +78,13 @@ export const stripeWebhook = functions.https
     let orderId;
     let order: Order | void;
 
-    // Handle Order
-    // TODO: 1. update payment status and order status :)
-    // 3. Send email to tomek. 4. Send email to customer
-
-    // 1. need to add payment_intent.failed and remove order on fail
-    // need to add metadata to payment intent to achieve this
-    // can also switch from using checkout session to pi_suceeded event
+    // 1. need to add expiry date to session for checkout.session.expired !
+    // need to use that to remode a db entry and save some storage space !
+    // 2. need to extract any references to test keys/dbs and use env vars
+    // in prod, use the prod key, locally use the test keys --- last
+    // 3. configure anonymouse authentication for data safety !
+    // 4. create admin dashboard with google signin for tomek !
+    // 5. create endpoints needed to update statuses of orders !
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
@@ -97,7 +97,7 @@ export const stripeWebhook = functions.https
         if (order) {
           await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
           await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
-          // this works but needs to be polished - polish and add attachments
+          // this works but needs to be polished - receipt html
           await sendNoReplyMessage(
             "no-reply@jobforme.ie",
             functions.config().noreply.mail,
