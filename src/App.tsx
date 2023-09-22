@@ -11,13 +11,17 @@ import Services from './pages/services/Services';
 import TermsAndConditions from './pages/terms-and-conditions/TermsAndConditions';
 import Success from './pages/success/Success';
 import Cancel from './pages/cancel/Cancel';
+import Admin from './admin/Admin';
+import RouterAdminWrapper from './components/router-admin-wrapper/RouterAdminWrapper';
 
 
 function App() {
 
   return (
     <div className="App">
-      <Navbar/>
+      <RouterAdminWrapper>
+        <Navbar/>
+      </RouterAdminWrapper>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/services' element={<Services/>}/>
@@ -28,8 +32,11 @@ function App() {
         <Route path='/terms-and-conditions' element={<TermsAndConditions/>}/>
         <Route path='/success' element={<Success/>}/>
         <Route path='/cancel' element={<Cancel/>}/>
+        <Route path='/admin' element={<Admin/>}/>
       </Routes>
-      <Footer/>
+      <RouterAdminWrapper>
+        <Footer/>
+      </RouterAdminWrapper>
     </div>
   );
 }

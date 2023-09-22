@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { LogoMulti } from '../../icons';
 import './Navbar.css';
-import {Dropdown, Nav, NavDropdown} from 'react-bootstrap';
+import { Nav, NavDropdown} from 'react-bootstrap';
 
 const Navbar = () => {
     return(

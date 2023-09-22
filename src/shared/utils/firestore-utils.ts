@@ -15,6 +15,15 @@ const getExtension = (type: string) => {
     }
 }
 
+export const getAllOrders = async () => {
+    const collectionRef = admin.collection(db, curDb);
+    return await admin.getDocs(collectionRef);
+}
+
+export const getStorageLink = async (fileRef: string): Promise<string> => {
+    return await storage.getDownloadURL(storage.ref(bucket,fileRef));
+}
+
 export const getOrder = async (orderId: string) => {
     const docRef = admin.doc(db, curDb, orderId) 
     const order = await admin.getDoc(docRef)

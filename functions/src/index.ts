@@ -41,6 +41,7 @@ export const createStripeCheckout = functions.https.onCall(
 
     logger.log("Stripe initialized successfully!");
     const orderId = uuid4();
+    const time = Math.floor(new Date().getTime()/1000.0);
     const session = await stripe.checkout.sessions.create({
       client_reference_id: orderId,
       payment_method_types: ["card"],
@@ -60,6 +61,7 @@ export const createStripeCheckout = functions.https.onCall(
       metadata: {
         orderId: orderId,
       },
+      expires_at: time + (60 * 30),
     });
 
     logger.log(`url: ${session.url}`);
@@ -78,13 +80,10 @@ export const stripeWebhook = functions.https
     let orderId;
     let order: Order | void;
 
-    // 1. need to add expiry date to session for checkout.session.expired !
-    // need to use that to remode a db entry and save some storage space !
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
-    // 3. configure anonymouse authentication for data safety !
-    // 4. create admin dashboard with google signin for tomek !
-    // 5. create endpoints needed to update statuses of orders !
+    // 3. configure anonymouse authentication for data safety! (order handling)
+    // 4. Admin dashboard functionality
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
@@ -123,6 +122,7 @@ export const stripeWebhook = functions.https
     case "checkout.session.expired":
       orderId = checkoutEvent.client_reference_id as string;
       await deleteOrder(orderId, db);
+      logger.info("entry deleted: " + orderId);
       break;
     default:
       logger.log(`Unhandled event type ${event.type}`);

@@ -2,6 +2,7 @@ import * as firebase from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import {getFunctions} from 'firebase/functions';
 import { getStorage } from 'firebase/storage';
+import {getAuth} from 'firebase/auth';
 
 const config = {
     apiKey: process.env.REACT_APP_API_KEY as string,
@@ -17,4 +18,5 @@ firebase.initializeApp(config);
 export const functions = getFunctions();
 export const db = getFirestore();
 export const bucket = getStorage();
+export const auth = getAuth();
 export default firebase;
