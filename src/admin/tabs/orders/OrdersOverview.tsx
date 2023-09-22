@@ -42,12 +42,12 @@ const OrdersOverview = () => {
                         {toggle}
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item onClick={(e) => setToggle('Order Status')}>
+                        <Dropdown.Item onClick={() => setToggle('Order Status')}>
                                     No Filter
                         </Dropdown.Item>
                         {ORDER_STATUSES.map((status, index) => {
                             return(
-                                <Dropdown.Item key={index} onClick={(e) => setToggle(status)}>
+                                <Dropdown.Item key={index} onClick={() => setToggle(status)}>
                                     {status}
                                 </Dropdown.Item>
                             )

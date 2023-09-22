@@ -98,7 +98,7 @@ const OrderCard = (props: props) => {
                     <p className='col'>
                         {links?.map((link,index) => {
                             return(
-                                <a className='row m-0 p-0' key={index} href={link}>
+                                <a className='row m-0 p-0' key={index} href={link} rel='noreferrer' target='_blank'>
                                     File {index+1}
                                 </a>
                             )
@@ -142,11 +142,11 @@ const OrderCard = (props: props) => {
         <Modal.Footer className='col'>
           <div className='row'>
             <p className='text-center'>Mark as:</p>
-            <Button variant="success" onClick={() => setShow(false)}>
-                DELIVERED
-            </Button>
             <Button className='border' variant="outline" onClick={() => setShow(false)}>
                 PROCESSING
+            </Button>
+            <Button variant="success" onClick={() => setShow(false)}>
+                DELIVERED
             </Button>
             <Button className='text-white' variant="secondary" onClick={() => setShow(false)}>
                 DELAYED
@@ -156,6 +156,9 @@ const OrderCard = (props: props) => {
             </Button>
             <Button className='text-white' variant="danger" onClick={() => setShow(false)}>
                 TERMINATED
+            </Button>
+            <Button className='text-white' variant="primary" onClick={() => setShow(false)}>
+                REFUNDED
             </Button>
           </div>
           <Button variant="danger" onClick={() => setShow(false)}>
