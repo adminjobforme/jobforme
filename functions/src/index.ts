@@ -95,7 +95,6 @@ export const stripeWebhook = functions.https
       case "paid":
         if (order) {
           await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
-          await updateOrderStatus(orderId, OrderStatus.PROCESSING, db);
           // this works but needs to be polished - receipt html
           await sendNoReplyMessage(
             "no-reply@jobforme.ie",

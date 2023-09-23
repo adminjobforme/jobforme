@@ -3,6 +3,8 @@ import { DbOrder } from '../../shared/models/db-order-model';
 import './OrderCard.css';
 import { useEffect, useState } from 'react';
 import { getStorageLink } from '../../shared/utils/firestore-utils';
+import { OrderStatus } from '../../shared/enums/order-status';
+import { setOrderStatus } from '../../shared/utils/firebase-functions';
 
 interface props {
     order: DbOrder;
@@ -29,6 +31,13 @@ const OrderCard = (props: props) => {
     getLinks();
 
  },[])
+
+  const handleStatus = async (status: OrderStatus) => {
+    setShow(false)
+    await setOrderStatus({orderId: order.orderId, orderStatus: status}).then(
+        () => {alert(`order: ${order.orderId} has successfully been set to ${status} `); order.orderStatus = status}
+    ).catch((err) => console.log(err))
+  }
 
   return (
     <>
@@ -142,23 +151,23 @@ const OrderCard = (props: props) => {
             <Modal.Footer className='col'>
                 <div className='row'>
                     <p className='text-center'>Mark as:</p>
-                    <Button className='border' variant="outline" onClick={() => setShow(false)}>
-                        PROCESSING
+                    <Button className='border' variant="outline" onClick={() => handleStatus(OrderStatus.PROCESSING)}>
+                        {OrderStatus.PROCESSING}
                     </Button>
-                    <Button variant="success" onClick={() => setShow(false)}>
-                        DELIVERED
+                    <Button variant="success" onClick={() => handleStatus(OrderStatus.DELIVERED)}>
+                        {OrderStatus.DELIVERED}
                     </Button>
-                    <Button className='text-white' variant="secondary" onClick={() => setShow(false)}>
-                        DELAYED
+                    <Button className='text-white' variant="secondary" onClick={() => handleStatus(OrderStatus.DELAYED)}>
+                        {OrderStatus.DELAYED}
                     </Button>
-                    <Button className='text-white' variant="warning" onClick={() => setShow(false)}>
-                        CANCELLED
+                    <Button className='text-white' variant="warning" onClick={() => handleStatus(OrderStatus.CANCELLED)}>
+                        {OrderStatus.CANCELLED}
                     </Button>
-                    <Button className='text-white' variant="danger" onClick={() => setShow(false)}>
-                        TERMINATED
+                    <Button className='text-white' variant="danger" onClick={() => handleStatus(OrderStatus.TERMINATED)}>
+                        {OrderStatus.TERMINATED}
                     </Button>
-                    <Button className='text-white' variant="primary" onClick={() => setShow(false)}>
-                        REFUNDED
+                    <Button className='text-white' variant="primary" onClick={() => handleStatus(OrderStatus.REFUNDED)}>
+                        {OrderStatus.REFUNDED}
                     </Button>
                 </div>
                 <Button variant="danger" onClick={() => setShow(false)}>

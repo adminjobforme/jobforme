@@ -39,8 +39,6 @@ const CheckoutForm = () => {
 
   const handleCheckout = async () => { 
     await setDisableButton(true);
-    // 2. loading spinners for async data //useState hook for loading state from parent 
-
     const refFileUploads: FileUploadModel = {
         cv: ref.current.cv?.files? ref.current.cv?.files[0] : undefined,
         coverLetter: ref.current.coverLetter?.files? ref.current.coverLetter?.files[0] : undefined
