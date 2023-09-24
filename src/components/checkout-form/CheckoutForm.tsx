@@ -12,6 +12,8 @@ import { addOrder } from '../../shared/utils/firestore-utils';
 import { FileUploadModel } from '../../shared/models/file-upload-model';
 import { FormOptionsModel } from './form-options-model';
 import { orderTypes } from './order-types';
+import { signInAnonymously } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 
 
@@ -28,6 +30,10 @@ const CheckoutForm = () => {
   const [orderType, setOrderType] = useState<OrderType[]>([OrderType.CV]);
   const [phone, setPhone] = useState<string>('');
   const [email, setEmail] = useState<string>('');
+
+  const anonymousSignIn = async () => {
+    await signInAnonymously(auth).then(() => console.log('signed in!')).catch((err) => console.log(err));
+  }
 
   const handleFormOnChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
     setDisplayOption(false);
@@ -46,6 +52,7 @@ const CheckoutForm = () => {
 
     let link = '';
     let id: string;
+    await anonymousSignIn();
     await createStripeCheckout(product).then(async (response) => {
         const sessionData = response.data as {url: string, id: string};
         link = sessionData.url;

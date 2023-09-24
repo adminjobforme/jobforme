@@ -82,9 +82,9 @@ export const stripeWebhook = functions.https
 
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
-    // 3. configure anonymous authentication for data safety! (order handling)
-    // 4. polish receipts and finish services / about us / terms
-    // 5. finish footer
+    // 1. configure anonymous authentication for data safety! (order handling)
+    // 3. polish receipts and finish services / about us / terms
+    // 2. finish footer
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
