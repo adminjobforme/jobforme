@@ -82,8 +82,9 @@ export const stripeWebhook = functions.https
 
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
-    // 3. configure anonymouse authentication for data safety! (order handling)
-    // 4. Admin dashboard functionality
+    // 3. configure anonymous authentication for data safety! (order handling)
+    // 4. polish receipts and finish services / about us / terms
+    // 5. finish footer
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
@@ -95,7 +96,6 @@ export const stripeWebhook = functions.https
       case "paid":
         if (order) {
           await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
-          // this works but needs to be polished - receipt html
           await sendNoReplyMessage(
             "no-reply@jobforme.ie",
             functions.config().noreply.mail,
