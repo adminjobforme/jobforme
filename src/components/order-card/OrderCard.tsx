@@ -89,7 +89,7 @@ const OrderCard = (props: props) => {
                             Email:
                         </p>
                         <p className='col'>
-                            {order.email}
+                            <a href={`mailto:${order.email}`} className='text-decoration-none'>{order.email}</a>
                         </p>
                     </div>
                     <div className='row d-flex align-items-center border-bottom'>
@@ -112,6 +112,16 @@ const OrderCard = (props: props) => {
                                     </a>
                                 )
                             })}
+                        </p>
+                    </div>
+                    <div className='row d-flex align-items-center border-bottom'>
+                        <p className='col'>
+                            LinkedIn:
+                        </p>
+                        <p className='col'>
+                            {order.link? 
+                            <a href={order.link} rel='noreferrer' target='_blank'>LinkedIn</a>
+                             : 'N/A'}
                         </p>
                     </div>
                     <div className='row d-flex align-items-center border-bottom'>

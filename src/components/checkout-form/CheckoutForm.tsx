@@ -14,6 +14,7 @@ import { FormOptionsModel } from './form-options-model';
 import { orderTypes } from './order-types';
 import { signInAnonymously } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { Link } from 'react-router-dom';
 
 
 
@@ -32,7 +33,9 @@ const CheckoutForm = () => {
   const [email, setEmail] = useState<string>('');
 
   const anonymousSignIn = async () => {
-    await signInAnonymously(auth).then(() => console.log('signed in!')).catch((err) => console.log(err));
+    return await signInAnonymously(auth)
+    .then((user) => { return user})
+    .catch((err) => console.log(err));
   }
 
   const handleFormOnChange = async (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -52,8 +55,9 @@ const CheckoutForm = () => {
 
     let link = '';
     let id: string;
-    await anonymousSignIn();
-    await createStripeCheckout(product).then(async (response) => {
+    const user = await anonymousSignIn();
+    if(user) {
+        await createStripeCheckout(product).then(async (response) => {
         const sessionData = response.data as {url: string, id: string};
         link = sessionData.url;
         id = sessionData.id
@@ -73,7 +77,10 @@ const CheckoutForm = () => {
           link: ref.current?.linkedIn?.value || ''
         }).catch((e) => {console.log(e)});
         window.location.assign(link)
-    }).catch((e) => {console.log(e)})
+        }).catch((e) => {console.log(e)})
+    }else{
+        console.log('authentication error')
+    }
   }
 
   const validateForm = (): boolean => {
@@ -152,7 +159,8 @@ const CheckoutForm = () => {
             </div>
             {displayOption ? <FormOptions ref={ref} key={option} option={option}/> : (<></>)}
 
-            <div className='d-flex w-100 justify-content-center'>
+            <div className='d-flex flex-column align-items-center w-100 justify-content-center'>
+                <p>By clicking &#39;Checkout&#39; you are agreeing to our <Link  rel='noreferrer' target='_blank' to='/terms-and-conditions'>Terms and Conditions</Link></p>
                 <Button className='btn-ternary w-25' disabled={disableButton} onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
                     { disableButton ? <div className='spinner-border text-light'/> : 'Checkout'}
                 </Button>

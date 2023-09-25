@@ -1,9 +1,15 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: Inter, sans-serif;
   color: hsl(250, 22%, 0%);
 }
+
+@font-face {
+  font-family: Inter;
+  src: url('fonts/static/Inter-Regular.ttf');
+}
+
 .App {
   background-color: white;
 }

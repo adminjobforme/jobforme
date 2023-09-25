@@ -112,7 +112,9 @@ const createReceiptToSend = async (
   item: string,
   amount: string,
   phone: string,
-  email: string ) => {
+  email: string,
+  orderId: string,
+  link?: string ) => {
   const html = await readFile(
     path.resolve(__dirname, dir),
     "utf8"
@@ -124,6 +126,8 @@ const createReceiptToSend = async (
     amount: amount,
     phone: phone,
     email: email,
+    link: link? link : "No LinkedIn attached",
+    orderId: orderId,
   };
   return template(data);
 };
@@ -136,7 +140,9 @@ export const sendNoReplyMessage =
       amount: number,
       name: string,
       phone: string,
-      files?: string[]) => {
+      orderId: string,
+      files?: string[],
+      link?: string) => {
       const mailTransporter = transporter(email, pass);
 
       const htmlReceipt = await createReceiptToSend( // customer
@@ -145,7 +151,9 @@ export const sendNoReplyMessage =
         item,
     amount as unknown as string,
     phone,
-    recipient
+    recipient,
+    orderId,
+    link? link : undefined
       );
 
       const htmlNotif = await createReceiptToSend( // tomek
@@ -154,7 +162,9 @@ export const sendNoReplyMessage =
         item,
     amount as unknown as string,
     phone,
-    recipient
+    recipient,
+    orderId,
+    link? link : undefined
       );
 
       // create attachments from file names

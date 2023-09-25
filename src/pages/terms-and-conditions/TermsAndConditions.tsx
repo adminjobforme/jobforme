@@ -1,4 +1,5 @@
 import './TermsAndConditions.css';
+import { terms } from './terms';
 const TermsAndConditions = () => {
   return (
     <div className='d-flex flex-column' id='terms-and-conditions'>
@@ -14,21 +15,18 @@ const TermsAndConditions = () => {
         </section>
 
         <section className='d-flex align-items-center flex-column'>
-            <div className='d-flex flex-column w-75 align-items-center py-5 justify-content-center'>
-                <h3>1. Agreement Overview</h3>
-
-                <p>These Terms and Conditions (&#34;Agreement&#34;) constitute a legally binding agreement between JOB4ME.IE and the individual or entity “Customer” availing the CV writing services provided by the Company. By using the Company&#39;s services, the Customer agrees to abide by these terms.</p>
-            </div>
-            <div className='d-flex flex-column w-75 align-items-center py-5 justify-content-center'>
-                <h3>1. Agreement Overview</h3>
-
-                <p>These Terms and Conditions (&#34;Agreement&#34;) constitute a legally binding agreement between JOB4ME.IE and the individual or entity “Customer” availing the CV writing services provided by the Company. By using the Company&#39;s services, the Customer agrees to abide by these terms.</p>
-            </div>
-            <div className='d-flex flex-column w-75 align-items-center py-5 justify-content-center'>
-                <h3>1. Agreement Overview</h3>
-
-                <p>These Terms and Conditions (&#34;Agreement&#34;) constitute a legally binding agreement between JOB4ME.IE and the individual or entity “Customer” availing the CV writing services provided by the Company. By using the Company&#39;s services, the Customer agrees to abide by these terms.</p>
-            </div>
+            {terms.map((term, index) => {
+                return(
+                    <div key={index} className='d-flex flex-column w-75 py-5 justify-content-center'>
+                        <h3 className='text-center'>{term.title}</h3>
+                        {term.description.map((desc, index) => {
+                            return(
+                                <p key={index}>{desc}</p>
+                            )
+                        })}
+                    </div>
+                )
+            })}
         </section>
     </div>
   )

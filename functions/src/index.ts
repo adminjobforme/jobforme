@@ -80,11 +80,11 @@ export const stripeWebhook = functions.https
     let orderId;
     let order: Order | void;
 
+    // 1. fix receipt html for customer
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
-    // 1. configure anonymous authentication for data safety! (order handling)
-    // 3. polish receipts and finish services / about us / terms
-    // 2. finish footer
+    // 3. polish receipts and finish services / about us
+    // 4. finish footer
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
@@ -104,7 +104,9 @@ export const stripeWebhook = functions.https
             order.amount,
             order.firstname + " " + order.surname,
             order.phone,
-            order.files
+            order.orderId,
+            order.files,
+            order.link
           );
         } else {
           logger.error(
