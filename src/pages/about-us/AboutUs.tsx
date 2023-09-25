@@ -9,7 +9,7 @@ const AboutUs = () => {
                     <h1 className='text-center w-75 fw-bolder about-us-a-content' >
                         We want to find job hunters perfect opportunity and empower companies to find better employees.
                     </h1>
-                    <p className='w-75 text-center mt-3 faded about-us-a-content about-us-a-subtext'>
+                    <p className=' text-center w-75 mt-3 faded about-us-a-content about-us-a-subtext'>
                         No matter what we’re working on, we&#39;ve got you covered with all the required tools & techniques in order for you, to be the best version of yourself.
                     </p>
             </section>
@@ -23,7 +23,7 @@ const AboutUs = () => {
                         <h2 className='fw-bolder w-75 mb-4'>
                             Who we are and what we do
                         </h2>
-                        <p className='text-start w-75'>
+                        <p className='text-start' id='about-us-desc'>
                             We are a group of people with passion to help others aim higher and reach their potential. We were found in Dublin, Ireland in 2022, during the COVID-19 pandemic when a lot of people have unfortunately lost their jobs. Since then, we have successfully helped many of our clients find different opportunities to continue & grow their careers within several industries.
                             <br/> <br/>
                             We specialize in creating & reviewing of CV’s, cover letters, LinkedIn profiles, assisting people with job hunting, interview preparations on which we cover the most important topics, to prepare you in a best possible way. We also offer career development plans, in which we discuss your career growth, what you can do to grow even bigger or if you’re unsure which path you would like to take in life, we can discuss this topic and do our best to find the right one.
@@ -44,7 +44,7 @@ const AboutUs = () => {
                         <h2 className='fw-bolder w-75 mb-4'>
                             Who we are and what we do
                         </h2>
-                        <p className='text-start w-75'>
+                        <p className='text-start' id='about-us-desc'>
                             We are a group of people with passion to help others aim higher and reach their potential. We were found in Dublin, Ireland in 2022, during the COVID-19 pandemic when a lot of people have unfortunately lost their jobs. Since then, we have successfully helped many of our clients find different opportunities to continue & grow their careers within several industries.
                             <br/> <br/>
                             We specialize in creating & reviewing of CV’s, cover letters, LinkedIn profiles, assisting people with job hunting, interview preparations on which we cover the most important topics, to prepare you in a best possible way. We also offer career development plans, in which we discuss your career growth, what you can do to grow even bigger or if you’re unsure which path you would like to take in life, we can discuss this topic and do our best to find the right one.
@@ -63,13 +63,16 @@ const AboutUs = () => {
                             <p className='text-center about-us-vision w-100 h-100 m-0 mt-2'>Vision of the founder</p>
                         </div>
                         <h2 className='fw-bolder w-75 mb-4'>
-                            Who we are and what we do
+                            Founder&#39;s words
                         </h2>
-                        <p className='text-start w-75'>
-                            We are a group of people with passion to help others aim higher and reach their potential. We were found in Dublin, Ireland in 2022, during the COVID-19 pandemic when a lot of people have unfortunately lost their jobs. Since then, we have successfully helped many of our clients find different opportunities to continue & grow their careers within several industries.
-                            <br/> <br/>
-                            We specialize in creating & reviewing of CV’s, cover letters, LinkedIn profiles, assisting people with job hunting, interview preparations on which we cover the most important topics, to prepare you in a best possible way. We also offer career development plans, in which we discuss your career growth, what you can do to grow even bigger or if you’re unsure which path you would like to take in life, we can discuss this topic and do our best to find the right one.
-                        </p>
+                        <div className='d-flex flex-column w-100'>
+                            <p className='text-start' id='about-us-desc'>
+                                My passion was always to help people and bring out the best version of themselves. Past experience has led me to collide passion with work and set up JOB4ME. Service made by people, for people.
+                            </p>
+                            <br></br>
+                            <h6 className='fw-bold mb-0'>Tomasz Schlass</h6>
+                            <p className='p-0 mt-0 faded'>CEO - JobForMe</p>
+                        </div>
                     </div>
                     <div className='col d-flex align-items-center justify-content-center'>
                         <h1 className='w-100 h-75 d-flex align-items-center justify-content-center about-us-image-round'>

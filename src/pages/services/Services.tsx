@@ -57,13 +57,12 @@ const Services = () => {
         <section id='services-c'>
           <div className='d-flex flex-column align-items-center justify-content-center flex-lg-row h-50 w-100 mt-5'>
             <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
-              <h3>
-                CV and Cover Letter 
+              <h3 className='text-center'>
+                CV, Cover Letter and LinkedIn Optimisation
               </h3>
               <p className='text-center text-secondary' id='services-text'>
-              Lorem ipsum dolor sit amet consectetur. Ut tincidunt quam sed in diam lobortis. Ornare velit pellentesque commodo ipsum orci eget. Condimentum penatibus libero in a lobortis lectus urna pretium. Vivamus tristique risus in commodo libero tristique purus feugiat at. Arcu felis tempus elementum at. Accumsan.
-              </p>
-              <Link to='/checkout' className='text-decoration-none'>
+                We know that a well-crafted CV, accompanied by a persuasive cover letter and a strategically optimised LinkedIn profile, can open doors to exciting opportunities. Our proven track record of success includes helping numerous individuals like you achieve their professional objectives.              </p>
+                <Link to='/checkout' className='text-decoration-none'>
                   <Button className='btn-ternary'>
                     Get Started
                   </Button>
@@ -77,10 +76,10 @@ const Services = () => {
           <div className='d-flex flex-column align-items-center justify-content-center flex-lg-row-reverse h-50 w-100 mt-5'>
               <div className=' d-flex flex-column align-items-center justify-content-center w-100 h-100'>
                 <h3>
-                  LinkedIn Optimisation
+                  More Questions?
                 </h3>
                 <p className='text-center text-secondary' id='services-text'>
-                Lorem ipsum dolor sit amet consectetur. Ut tincidunt quam sed in diam lobortis. Ornare velit pellentesque commodo ipsum orci eget. Condimentum penatibus libero in a lobortis lectus urna pretium. Vivamus tristique risus in commodo libero tristique purus feugiat at. Arcu felis tempus elementum at. Accumsan.
+                  Having some doubts or questions or maybe you’re interested in services offered above? Please check out our <a href='/contact-us'>FAQ’s</a> & do not hesitate by writing to   <a href='mailto:help@jobforme.ie'>help@jobforme.ie</a>  if you did not find an answer to your question.
                 </p>
                 <Link to='/checkout' className='text-decoration-none'>
                   <Button className='btn-ternary'>

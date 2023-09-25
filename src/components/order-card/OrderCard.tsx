@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getStorageLink } from '../../shared/utils/firestore-utils';
 import { OrderStatus } from '../../shared/enums/order-status';
 import { setOrderStatus } from '../../shared/utils/firebase-functions';
+import { OrderType } from '../../shared/enums/order-type';
 
 interface props {
     order: DbOrder;
@@ -18,7 +19,7 @@ const OrderCard = (props: props) => {
  useEffect(() => {
     const getLinks = async () => {
         const urls: string[] = [];
-        if(order.files){
+        if(order.orderType?.includes(OrderType.CV) || order.orderType?.includes(OrderType.COVER_LETTER)){
             order.files?.forEach(
             async (ref) => {
                 await getStorageLink(ref)
@@ -100,6 +101,7 @@ const OrderCard = (props: props) => {
                             {order.phone}
                         </p>
                     </div>
+                    {order.orderType?.includes(OrderType.CV) || order.orderType?.includes(OrderType.COVER_LETTER) ?
                     <div className='row d-flex align-items-center border-bottom'>
                         <p className='col'>
                             Files:
@@ -113,7 +115,7 @@ const OrderCard = (props: props) => {
                                 )
                             })}
                         </p>
-                    </div>
+                    </div> : null}
                     <div className='row d-flex align-items-center border-bottom'>
                         <p className='col'>
                             LinkedIn:
