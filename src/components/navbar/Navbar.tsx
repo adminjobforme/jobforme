@@ -42,18 +42,18 @@ const Navbar = () => {
                 </div>
             </nav>
 
-            <Nav className='d-flex w-100 align-items-center justify-content-between position-fixed hidden-desktop py-2' id='navbar-mobile'>
-                <Nav.Item>
-                    <Nav.Link as={Link} to='/' className='text-decoration-none text-dark mt-1 fw-bold'>
-                        <div className='mx-3 my-2'>
+            <Nav className='m-0 p-0 row d-flex w-100 align-items-center justify-content-between position-top hidden-desktop py-2' id='navbar-mobile'>
+                <Nav.Item className='m-0 p-0 col d-flex w-100 justify-content-center'>
+                    <Nav.Link as={Link} to='/' className=' text-decoration-none text-dark mt-1 fw-bold'>
+                        <div className='mx-3 my-2 text-center'>
                             <LogoMulti/> JOB4ME
                         </div>
                     </Nav.Link>
                 </Nav.Item>
-                <Nav.Item className='d-flex flex-row justify-content-between'>
-                    <Nav.Item className=' d-flex align-items-center justify-content-center'>
+                <Nav.Item className='col m-0 p-0 w-100 d-flex flex-row justify-content-center'>
+                    <Nav.Item className='d-flex  align-items-center justify-content-center'>
                         <Nav.Link as={Link} to='/checkout' className='text-decoration-none'>
-                            <button className='btn-ternary'>Get Started</button>
+                            <button className='btn-ternary p-1'>Get Started</button>
                         </Nav.Link>
                     </Nav.Item>
                     <NavDropdown className='text-decoration-none' title='' >

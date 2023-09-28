@@ -11,3 +11,8 @@
 #footer-bottom-text {
     opacity: 0.6;
 }
+
+#footer-whatsapp {
+    border-radius: 100%;
+    width: 10%;
+}

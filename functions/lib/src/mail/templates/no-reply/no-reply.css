@@ -41,6 +41,11 @@ body {
 
 #receipt {
     display: flex;
-    width: 40vw;
+    flex-direction: row;
+    width: fit-content;
     justify-content: space-between;
+}
+
+#underline {
+    text-decoration: underline;
 }

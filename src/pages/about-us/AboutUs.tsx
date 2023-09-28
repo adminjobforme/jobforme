@@ -62,11 +62,11 @@ const AboutUs = () => {
                         <div className='d-flex justify-content-start align-items-center my-2' id='about-us-vision-tag'>
                             <p className='text-center about-us-vision w-100 h-100 m-0 mt-2'>Vision of the founder</p>
                         </div>
-                        <h2 className='fw-bolder w-75 mb-4'>
+                        <h2 className='text-center fw-bolder w-75 mb-4'>
                             Founder&#39;s words
                         </h2>
-                        <div className='d-flex flex-column w-100'>
-                            <p className='text-start' id='about-us-desc'>
+                        <div className='d-flex flex-column align-items-center w-100'>
+                            <p className='text-center m-0' id='about-us-desc'>
                                 My passion was always to help people and bring out the best version of themselves. Past experience has led me to collide passion with work and set up JOB4ME. Service made by people, for people.
                             </p>
                             <br></br>

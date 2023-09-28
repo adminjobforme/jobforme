@@ -80,7 +80,7 @@ export const stripeWebhook = functions.https
     let orderId;
     let order: Order | void;
 
-    // 1. fix receipt html for customer
+    // 1. fix receipt html for customer -- done?
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
     // 3. finish services - done? / about us
