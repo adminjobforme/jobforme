@@ -31,7 +31,7 @@ const Home = () => {
                         What we offer?
                     </h1>
                 </div>
-                <div className='d-flex justify-content-around' id='home-b-2'>
+                <div className='d-flex justify-content-around mb-5' id='home-b-2'>
                     <div className='row row-cols-1 row-cols-md-3' id='home-b-2-content'>
                         {homeServices.map((item) => {
                             return(
@@ -46,7 +46,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='d-flex flex-column' id='home-c'>
+            <section className='d-flex flex-column mt-5' id='home-c'>
                 <div className='d-flex flex-column justify-content-around h-100'>
                     <div className='d-flex flex-column justify-content-end h-50'>
                         <h2 className='text-center fw-bold'>Important once in a lifetime investment</h2>
