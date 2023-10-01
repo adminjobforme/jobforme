@@ -27,16 +27,14 @@ import {SupportMessage} from "./models/support-message";
 import {Order} from "./models/order";
 
 admin.initializeApp();
-const db = functions.config().db.test;
-
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
 
 export const createStripeCheckout = functions.https.onCall(
-  async (data: StripePayment, context) => {
+  async (data: {product: StripePayment, key: string, db: string}, context) => {
     const stripe = new Stripe.Stripe(
-      functions.config().stripe.secret_key,
+      data.key,
       {apiVersion: "2023-08-16"});
 
     logger.log("Stripe initialized successfully!");
@@ -52,14 +50,14 @@ export const createStripeCheckout = functions.https.onCall(
         quantity: 1,
         price_data: {
           currency: "eur",
-          unit_amount: data.unitAmount,
+          unit_amount: data.product.unitAmount,
           product_data: {
-            name: data.name,
+            name: data.product.name,
           },
         },
       }],
       metadata: {
-        orderId: orderId,
+        db: data.db,
       },
       expires_at: time + (60 * 30),
     });
@@ -77,15 +75,13 @@ export const stripeWebhook = functions.https
   .onRequest(async (request, response) => {
     const event = request.body;
     const checkoutEvent = event.data.object;
+    const db = checkoutEvent.metadata.db;
     let orderId;
     let order: Order | void;
 
-    // 1. fix receipt html for customer -- done?
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
-    // 3. finish services - done? / about us
-    // 4. finish footer - done?
-    // 5. glitch with order card grabbing wrong files - fixed?
+    // 3. finish about us
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"
@@ -96,7 +92,9 @@ export const stripeWebhook = functions.https
       switch (checkoutEvent.payment_status as string) {
       case "paid":
         if (order) {
-          await updatePaymentStatus(orderId, PaymentStatus.PAID, db);
+          await updatePaymentStatus(orderId,
+            PaymentStatus.PAID,
+            db);
           await sendNoReplyMessage(
             "no-reply@jobforme.ie",
             functions.config().noreply.mail,
@@ -134,9 +132,12 @@ export const stripeWebhook = functions.https
   });
 
 export const setOrderStatus = functions.https.onCall(
-  async (data: UpdateOrder, context) => {
+  async (data: {order: UpdateOrder, db: string}, context) => {
     try {
-      await updateOrderStatus(data.orderId, data.orderStatus, db);
+      await updateOrderStatus(
+        data.order.orderId,
+        data.order.orderStatus,
+        data.db);
     } catch (err) {
       return {
         statusCode: 400,

@@ -4,7 +4,7 @@ import { bucket, db } from '../../firebase';
 import { Order } from '../models/order-model';
 import { FileUploadModel } from '../models/file-upload-model';
 
-const curDb = process.env.REACT_APP_TEST_DB as string
+const curDb = process.env.REACT_APP_DB as string
 
 const getExtension = (type: string) => {
     if(type =='application/vnd.openxmlformats-officedocument.wordprocessingml.document') return 'docx';

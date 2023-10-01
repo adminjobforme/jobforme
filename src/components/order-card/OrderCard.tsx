@@ -35,7 +35,7 @@ const OrderCard = (props: props) => {
 
   const handleStatus = async (status: OrderStatus) => {
     setShow(false)
-    await setOrderStatus({orderId: order.orderId, orderStatus: status}).then(
+    await setOrderStatus({order: {orderId: order.orderId, orderStatus: status}, db: process.env.REACT_APP_DB}).then(
         () => {alert(`order: ${order.orderId} has successfully been set to ${status} `); order.orderStatus = status}
     ).catch((err) => console.log(err))
   }

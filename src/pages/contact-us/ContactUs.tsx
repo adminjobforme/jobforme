@@ -120,7 +120,7 @@ const ContactUs = () => {
                             <h6 className='fw-bold h-100 mx-3'>Email</h6>
                         </div>
                         <div className='h-50 d-flex align-items-center mt-2'>
-                            <p>email us at <a href='mailto:support@jobforme.ie' className='text-decoration-none'>help@jobforme.ie</a></p>
+                            <p>email us at <a href='mailto:help@jobforme.ie' className='text-decoration-none'>help@jobforme.ie</a></p>
                         </div>
                     </div>
 
