@@ -16,6 +16,10 @@
     opacity: 0.6;
 }
 
+#home-logo {
+    height: 20vh;
+}
+
 #home-content-a {
     position: relative;
 }
