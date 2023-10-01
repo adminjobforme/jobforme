@@ -57,7 +57,8 @@ const CheckoutForm = () => {
     let id: string;
     const user = await anonymousSignIn();
     if(user) {
-        await createStripeCheckout({product: product, key: process.env.REACT_APP_STRIPE_KEY, db: process.env.REACT_APP_DB}).then(async (response) => {
+        console.log(process.env.REACT_APP_STRIPE_KEY as string)
+        await createStripeCheckout({product: product, key: process.env.REACT_APP_STRIPE_KEY as string, db: process.env.REACT_APP_DB as string}).then(async (response) => {
         const sessionData = response.data as {url: string, id: string};
         link = sessionData.url;
         id = sessionData.id

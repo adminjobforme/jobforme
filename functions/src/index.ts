@@ -44,8 +44,8 @@ export const createStripeCheckout = functions.https.onCall(
       client_reference_id: orderId,
       payment_method_types: ["card"],
       mode: "payment",
-      success_url: "https://jobforme-d9672.web.app/success",
-      cancel_url: "https://jobforme-d9672.web.app/cancel",
+      success_url: "https://jobforme.ie/success",
+      cancel_url: "https://jobforme.ie/cancel",
       line_items: [{
         quantity: 1,
         price_data: {
