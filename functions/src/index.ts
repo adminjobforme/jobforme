@@ -84,7 +84,7 @@ export const stripeWebhook = functions.https
     // 2. need to extract any references to test keys/dbs and use env vars
     // in prod, use the prod key, locally use the test keys --- last
     // 3. finish services - done? / about us
-    // 4. finish footer
+    // 4. finish footer - done?
     // 5. glitch with order card grabbing wrong files - fixed?
 
     switch (event.type) {
