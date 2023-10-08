@@ -1,6 +1,8 @@
 import './AboutUs.css';
 import img1 from '../../images/about-us/topImage.jpg';
 import img2 from '../../images/about-us/middleImage.jpg';
+import img3 from '../../images/about-us/tomek.jpg';
+import { Wish } from '../../icons/about-us';
 
 const AboutUs = () => {
     return(
@@ -23,11 +25,11 @@ const AboutUs = () => {
                         <h2 className='fw-bolder w-75 mb-4'>
                             Who we are and what we do
                         </h2>
-                        <p className='text-start' id='about-us-desc'>
+                        <div className='text-start' id='about-us-desc'>
                             We are a group of people with passion to help others aim higher and reach their potential. We were found in Dublin, Ireland in 2022, during the COVID-19 pandemic when a lot of people have unfortunately lost their jobs. Since then, we have successfully helped many of our clients find different opportunities to continue & grow their careers within several industries.
                             <br/> <br/>
                             We specialize in creating & reviewing of CV’s, cover letters, LinkedIn profiles, assisting people with job hunting, interview preparations on which we cover the most important topics, to prepare you in a best possible way. We also offer career development plans, in which we discuss your career growth, what you can do to grow even bigger or if you’re unsure which path you would like to take in life, we can discuss this topic and do our best to find the right one.
-                        </p>
+                        </div>
                 </div>
                 <div className='col d-flex align-items-center justify-content-center'>
                     <h1 className='w-100 h-75 d-flex align-items-center justify-content-center about-us-image-round'>
@@ -42,13 +44,37 @@ const AboutUs = () => {
                             <p className='text-center about-us-vision w-100 h-100 m-0 mt-2'>Vision of the founder</p>
                         </div>
                         <h2 className='fw-bolder w-75 mb-4'>
-                            Who we are and what we do
+                            Our work is our passion
                         </h2>
-                        <p className='text-start' id='about-us-desc'>
-                            We are a group of people with passion to help others aim higher and reach their potential. We were found in Dublin, Ireland in 2022, during the COVID-19 pandemic when a lot of people have unfortunately lost their jobs. Since then, we have successfully helped many of our clients find different opportunities to continue & grow their careers within several industries.
-                            <br/> <br/>
-                            We specialize in creating & reviewing of CV’s, cover letters, LinkedIn profiles, assisting people with job hunting, interview preparations on which we cover the most important topics, to prepare you in a best possible way. We also offer career development plans, in which we discuss your career growth, what you can do to grow even bigger or if you’re unsure which path you would like to take in life, we can discuss this topic and do our best to find the right one.
-                        </p>
+                        <div id='about-us-desc'>
+                            <div className='w-100  mx-auto'>
+                                <div className='d-flex justify-content-start'>
+                                    <Wish /> 
+                                    <h4 className='text-center fw-bolder mx-2'>The Customer is our priority</h4>
+                                </div>
+                                <p className='text-start'>
+                                    It’s a service made by people, for people. To each of our clients we come up individually, seriously and with priority.
+                                </p>
+                            </div>
+                            <div className='w-100  mx-auto'>
+                                <div className='d-flex justify-content-start'>
+                                    <Wish /> 
+                                    <h4 className='text-center fw-bolder mx-2'>Secure and reliable</h4>
+                                </div>
+                                <p className='text-start'>
+                                    Our website is 100% secure, therefore any payments made go directly to us and once the funds will be received, we will contact you as soon as possible regarding your application.
+                                </p>
+                            </div>
+                            <div className='w-100  mx-auto'>
+                                <div className='d-flex justify-content-start'>
+                                    <Wish /> 
+                                    <h4 className='text-center fw-bolder mx-2'>Price & Professionalism</h4>
+                                </div>
+                                <p className='text-start'>
+                                    We offer one of the best prices and most professional service within this sector in Ireland.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <div className='col d-flex align-items-center justify-content-center'>
                         <h1 className='w-100 h-75 d-flex align-items-center justify-content-center about-us-image-round'>
@@ -76,7 +102,7 @@ const AboutUs = () => {
                     </div>
                     <div className='col d-flex align-items-center justify-content-center'>
                         <h1 className='w-100 h-75 d-flex align-items-center justify-content-center about-us-image-round'>
-                            <img src={img1} className='img-fluid' alt='laughter-image'></img>
+                            <img src={img3} className='img-fluid about-us-image-round' alt='ceo-image'></img>
                         </h1>
                     </div>
                 </div>

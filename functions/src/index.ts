@@ -79,9 +79,9 @@ export const stripeWebhook = functions.https
     let orderId;
     let order: Order | void;
 
-    // 2. need to extract any references to test keys/dbs and use env vars
-    // in prod, use the prod key, locally use the test keys --- last
-    // 3. finish about us
+    // 1. finish about us
+    // 2. set language
+    // 3. scan for typos / bugs
 
     switch (event.type) {
     case "checkout.session.completed": // "payment_intent.succeeded"

@@ -13,7 +13,7 @@ const Home = () => {
                     <div className='d-flex align-items-center justify-content-center mt-5'>
                         <img className='fw-bold mb-5 img-fluid' src={logo} alt='JOB4ME' id='home-logo'/>
                     </div>
-                    <p className='fs-5 text-center text-secondary'>Need help with CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
+                    <p className='fs-5 text-center text-secondary'>Need help with a CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
                     <div className='d-flex mt-5 w-100 align-items-center justify-content-center'>
                         <Form.Select className='btn btn-outline border-dark' aria-label="language selector" id='language-selector'>
                             <option disabled>-- Select a Language ---</option>
