@@ -58,7 +58,7 @@ const TrackOrder = () => {
                 </div>
                 <div className='mt-5 d-flex flex-column flex-lg-row align-items-center justify-content-between w-75'>
                     <div className='w-75 d-flex flex-column align-items-center' id='track-order-info'>
-                        { orderData.orderStatus == OrderStatus.PROCESSING || orderData.orderStatus == OrderStatus.RECEIVED
+                        { orderData.orderStatus == OrderStatus.PROCESSING || orderData.orderStatus == OrderStatus.RECEIVED || orderData.orderStatus == OrderStatus.DELIVERED
                         ? <AiFillCheckCircle fill='#169B62' size='40px' className='mb-4'/>
                         : <div className='spinner-border mb-4' id='track-order-spinner'/>}
                         <div>
@@ -72,13 +72,13 @@ const TrackOrder = () => {
                         </div>
                     </div>
                     <div className='d-flex flex-column align-items-center w-75' id='track-order-info'>
-                        { orderData.orderStatus == OrderStatus.PROCESSING
+                        { orderData.orderStatus == OrderStatus.PROCESSING || orderData.orderStatus == OrderStatus.DELIVERED
                         ? <AiFillCheckCircle fill='#169B62' size='40px' className='mb-4'/>
                         : <div className='spinner-border mb-4' id='track-order-spinner'/>}
                         <div>
                             <h5 className='fw-bold mb-0 text-center'>Processing</h5>
                             <p className='fw-lighter faded-subheader mt-0 text-center'>
-                                {orderData.orderStatus == OrderStatus.PROCESSING 
+                                {orderData.orderStatus == OrderStatus.PROCESSING || orderData.orderStatus == OrderStatus.DELIVERED
                                 ? orderData.created.substring(0,10) 
                                 : 'N/A'}
                             </p>
