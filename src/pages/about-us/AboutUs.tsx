@@ -47,28 +47,31 @@ const AboutUs = () => {
                             Our work is our passion
                         </h2>
                         <div id='about-us-desc'>
-                            <div className='w-100  mx-auto'>
-                                <div className='d-flex justify-content-start'>
-                                    <Wish /> 
-                                    <h4 className='text-center fw-bolder mx-2'>The Customer is our priority</h4>
+                            <div className='col w-100  mx-auto'>
+                                <div className='row'>
+                                    <h4 className='text-start fw-bolder mx-2'>
+                                        <Wish /> &nbsp; The Customer is our priority
+                                    </h4>
                                 </div>
                                 <p className='text-start'>
                                     It’s a service made by people, for people. To each of our clients we come up individually, seriously and with priority.
                                 </p>
                             </div>
-                            <div className='w-100  mx-auto'>
-                                <div className='d-flex justify-content-start'>
-                                    <Wish /> 
-                                    <h4 className='text-center fw-bolder mx-2'>Secure and reliable</h4>
+                            <div className='col w-100  mx-auto'>
+                                <div className='row justify-content-start'>
+                                    <h4 className='text-start fw-bolder mx-2'>
+                                        <Wish /> &nbsp; Secure and reliable
+                                    </h4>
                                 </div>
                                 <p className='text-start'>
                                     Our website is 100% secure, therefore any payments made go directly to us and once the funds will be received, we will contact you as soon as possible regarding your application.
                                 </p>
                             </div>
-                            <div className='w-100  mx-auto'>
-                                <div className='d-flex justify-content-start'>
-                                    <Wish /> 
-                                    <h4 className='text-center fw-bolder mx-2'>Price & Professionalism</h4>
+                            <div className='col w-100  mx-auto'>
+                                <div className='row d-inline'> 
+                                    <h4 className='text-start fw-bolder mx-2'>
+                                        <Wish /> &nbsp; Price & Professionalism
+                                    </h4>
                                 </div>
                                 <p className='text-start'>
                                     We offer one of the best prices and most professional service within this sector in Ireland.

@@ -15,7 +15,7 @@ const TrackOrder = () => {
     const handleSubmit = async () => {
         try{
             await getOrder(orderNumber)
-            .then((o) => {o != undefined ? setOrderData(o as Order) : alert('Please ensure the number you entered it correct and try again')});
+            .then((o) => {o != undefined ? setOrderData(o as Order) : alert('Please ensure the number you entered is correct and try again')});
         }catch(err){
             console.log(err);
         }
