@@ -57,7 +57,7 @@ const Home = () => {
                             It’s our passion and aim to help you reach for the goal and bring out your best potential
                         </p>
                     </div>
-                    <div className='d-flex h-50 row row-cols-1 row-cols-md-3 w-100'>
+                    <div className='d-flex h-50 row row-cols-1 row-cols-md-3 w-100 mb-3'>
                         <div className='d-flex flex-column col justify-content-center'>
                             <h1 className='text-center fw-bold'>Over 3X</h1>
                             <h6 className='text-center'>More chances for an interview</h6>
@@ -74,11 +74,11 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='d-flex w-100' id='home-d'>
+            <section className='d-flex w-100 mt-5' id='home-d'>
                 <div className='d-flex flex-column w-100 h-100'>
                     <div className='d-flex flex-column align-items-center justify-content-end' id='home-d-top'>
                         <h1 className='text-center fw-bold'>Build your career with us.</h1>
-                        <p className='text-center faded w-50'>
+                        <p className='text-center faded w-75'>
                             Ranging from Entry level to Professional roles, our prices stay the same and do not change depending on your career level.
                         </p>
                     </div>
