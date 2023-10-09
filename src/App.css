@@ -10,6 +10,11 @@
   src: url('./fonts/static/Inter-Regular.svg');
 }
 
+@font-face {
+  font-family: Inter-Bold;
+  src: url('./fonts/static/Inter-Bold.svg');
+}
+
 .App {
   background-color: white;
 }

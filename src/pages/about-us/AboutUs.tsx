@@ -1,7 +1,7 @@
 import './AboutUs.css';
 import img1 from '../../images/about-us/topImage.jpg';
 import img2 from '../../images/about-us/middleImage.jpg';
-import img3 from '../../images/about-us/tomek.jpg';
+import img3 from '../../images/about-us/tomek-brighter.jpeg';
 import { Wish } from '../../icons/about-us';
 
 const AboutUs = () => {

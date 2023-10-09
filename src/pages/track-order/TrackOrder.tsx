@@ -3,10 +3,8 @@ import './TrackOrder.css';
 import { useState } from 'react';
 import { getOrder } from '../../shared/utils/firestore-utils';
 import { Order } from '../../shared/models/order-model';
-import { OrderType } from '../../shared/enums/order-type';
 import { OrderStatus } from '../../shared/enums/order-status';
 import { AiFillCheckCircle } from 'react-icons/ai';
-import { IconContext } from 'react-icons';
 
 const TrackOrder = () => {
     const [orderNumber, setOrderNumber] = useState<string>('');

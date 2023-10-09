@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Suspense } from 'react';
+import Loading from './components/loading/Loading';
 
 
 const root = ReactDOM.createRoot(
@@ -11,7 +13,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <App />
+    <Suspense fallback={<Loading/>}>
+      <App />
+    </Suspense>
   </BrowserRouter>
 );
 
