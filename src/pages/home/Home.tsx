@@ -3,8 +3,28 @@ import './Home.css';
 import { homeCardService, homeServices } from './home-service';
 import { HomeCardModel } from '../../shared/models/home-card-model';
 import logo from '../../images/background/logo kolor-czarny.png';
+import { useEffect } from 'react';
 
 const Home = () => {
+    const googleTranslateElementInit = () => {
+        new (window as any).google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false
+          },
+          'google_translate_element'
+        );
+      };
+    
+      useEffect(() => {
+        const addScript = document.createElement('script');
+        addScript.setAttribute(
+          'src',
+          '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+        );
+        document.body.appendChild(addScript);
+        (window as any).googleTranslateElementInit = googleTranslateElementInit;
+      }, []);
     return(
         <div className='d-flex flex-column' id='home'>
             <section className='d-flex align-items-center justify-content-center' id='home-a'>
@@ -13,6 +33,7 @@ const Home = () => {
                         <img className='fw-bold mb-5 img-fluid' src={logo} alt='JOB4ME' id='home-logo'/>
                     </div>
                     <p className='fs-5 text-center text-secondary'>Need help with a CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
+                    <div className='d-flex flex-row align-items-center justify-content-center w-100' id="google_translate_element"></div>
                 </div>
                 
             </section>
