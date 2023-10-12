@@ -5,6 +5,18 @@
   color: hsl(250, 22%, 0%);
 }
 
+h1 {
+  font-family: Inter-Bold;
+}
+
+h2 {
+  font-family: Inter-Bold;
+}
+
+h3 {
+  font-family: Inter-Bold;
+}
+
 @font-face {
   font-family: Inter;
   src: url('./fonts/static/Inter-Regular.svg');
