@@ -51,12 +51,12 @@ const Navbar = () => {
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item className='col m-0 p-0 w-100 d-flex flex-row justify-content-center'>
-                    <Nav.Item className='d-flex  align-items-center justify-content-center'>
+                    <Nav.Item className='d-flex align-items-center justify-content-center'>
                         <Nav.Link as={Link} to='/checkout' className='text-decoration-none'>
-                            <button className='btn-ternary p-1'>Get Started</button>
+                            <button className='btn-ternary pe-auto text-center'>Get Started</button>
                         </Nav.Link>
                     </Nav.Item>
-                    <NavDropdown className='text-decoration-none' title='' >
+                    <NavDropdown className='text-decoration-none' title='' id='nav-dropdown-mobile'>
                         <NavDropdown.Item as={Link} to='/services'>
                                 Services
                         </NavDropdown.Item>
