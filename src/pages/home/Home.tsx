@@ -40,9 +40,9 @@ const Home = () => {
 
             <section className='d-flex flex-column align-items-stretch' id='home-b'>
                 <div id='home-b-1'>
-                    <h5 className='fs-2 text-center fw-bold w-75 mb-5'>
+                    <h1 className='text-center fw-bold w-75 mb-5'>
                         What we offer?
-                    </h5>
+                    </h1>
                 </div>
                 <div className='d-flex justify-content-around mb-5' id='home-b-2'>
                     <div className='row row-cols-1 row-cols-md-3' id='home-b-2-content'>
@@ -62,22 +62,22 @@ const Home = () => {
             <section className='d-flex flex-column mt-5' id='home-c'>
                 <div className='d-flex flex-column justify-content-around h-100'>
                     <div className='d-flex flex-column justify-content-end h-50'>
-                        <h5 className='fs-2 text-center fw-bold'>Important once in a lifetime investment</h5>
+                        <h1 className='text-center fw-bold'>Important once in a lifetime investment</h1>
                         <p className='text-center faded'>
                             It’s our passion and aim to help you reach for the goal and bring out your best potential
                         </p>
                     </div>
                     <div className='d-flex h-50 row row-cols-1 row-cols-md-3 w-100 mb-3'>
                         <div className='d-flex flex-column col justify-content-center'>
-                            <h5 className='fs-2 text-center fw-bold'>Over 3X</h5>
+                            <h1 className='text-center fw-bold'>Over 3X</h1>
                             <h6 className='text-center'>More chances for an interview</h6>
                         </div>
                         <div className='d-flex flex-column col justify-content-center'>
-                            <h5 className='fs-2 text-center fw-bold'>Over 3X</h5>
+                            <h1 className='text-center fw-bold'>Over 3X</h1>
                             <h6 className='text-center'>Better Career Perspective</h6>
                         </div>
                         <div className='d-flex flex-column col justify-content-center'>
-                            <h5 className='fs-2 text-center fw-bold'>100+</h5>
+                            <h1 className='text-center fw-bold'>100+</h1>
                             <h6 className='text-center'>Candidates successfully employed.</h6>
                         </div>
                     </div>
@@ -87,7 +87,7 @@ const Home = () => {
             <section className='d-flex w-100 mt-5' id='home-d'>
                 <div className='d-flex flex-column w-100 h-100'>
                     <div className='d-flex flex-column align-items-center justify-content-end' id='home-d-top'>
-                        <h5 className='fs-2 text-center fw-bold'>Build your career with us.</h5>
+                        <h1 className='text-center fw-bold'>Build your career with us.</h1>
                         <p className='text-center faded w-75'>
                             Ranging from Entry level to Professional roles, our prices stay the same and do not change depending on your career level.
                         </p>
