@@ -162,7 +162,7 @@ const CheckoutForm = () => {
 
             <div className='d-flex flex-column align-items-center w-100 justify-content-center'>
                 <p>By clicking &#39;Checkout&#39; you are agreeing to our <Link  rel='noreferrer' target='_blank' to='/terms-and-conditions'>Terms and Conditions</Link></p>
-                <Button className='btn-ternary w-25' disabled={disableButton} onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
+                <Button className='btn-ternary' disabled={disableButton} onClick={() => {validateForm() ? handleCheckout() : alert('please fill in all fields and attach all relevant files')}}>
                     { disableButton ? <div className='spinner-border text-light'/> : 'Checkout'}
                 </Button>
             </div>
