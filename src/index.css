@@ -26,3 +26,13 @@ code {
   font-family: Inter-Bold;
   src: url('./fonts/static/Inter-Bold.svg');
 }
+
+@font-face {
+  font-family: Inter-Medium;
+  src: url('./fonts/static/Inter-Medium.svg');
+}
+
+@font-face {
+  font-family: Inter-SemiBold;
+  src: url('./fonts/static/Inter-SemiBold.svg');
+}
