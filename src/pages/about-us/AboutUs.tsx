@@ -96,7 +96,7 @@ const AboutUs = () => {
                         </h2>
                         <div className='d-flex flex-column align-items-center w-100'>
                             <p className='text-center m-0' id='about-us-desc'>
-                                My passion was always to help people and bring out the best version of themselves. Past experience has led me to collide passion with work and set up JOB4ME. Service made by people, for people.
+                                My passion was always to help people and bring out the best version of themselves. Past experience has led me to collide passion with work and set up JobForMe. Service made by people, for people.
                             </p>
                             <br></br>
                             <h6 className='fw-bold mb-0'>Tomasz Schlass</h6>

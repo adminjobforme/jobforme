@@ -30,7 +30,7 @@ const Home = () => {
             <section className='d-flex align-items-center justify-content-center' id='home-a'>
                 <div className='d-flex-col align-items-center justify-content-center' id='home-content-a'>
                     <div className='d-flex align-items-center justify-content-center mt-5'>
-                        <img className='fw-bold mb-5 img-fluid' src={logo} alt='JOB4ME' id='home-logo'/>
+                        <img className='fw-bold mb-5 img-fluid' src={logo} alt='JobForMe' id='home-logo'/>
                     </div>
                     <p className='fs-5 text-center text-secondary'>Need help with a CV, landing your dream job or career guidance? <br/> Contact us, we&#39;re here to help!</p>
                     <div className='d-flex flex-row align-items-center justify-content-center w-100' id="google_translate_element"></div>

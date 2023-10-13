@@ -8,7 +8,7 @@ export const homeServices: HomeServiceItemModel[] = [
     {icon: LinkedIn, subheader: 'LinkedIn Profile Creation & Revision', text: 'An outstanding LinkedIn profile is a key for the recruiter to be interested in you.', key: 6},
     {icon: JobHunting, subheader: 'Job Hunting Assistance', text: ' Our team will send your application to all the right places for you', key: 5},
     {icon: Interview, subheader: 'Interview Preperation', text: 'Talk to one of our experts and you will be prepared for your interview, in a way as never before', key: 4},
-    {icon: Career, subheader: 'Career Development Plan', text: 'Thinking of a career change or not sure which direction you should head? At JOB4ME we can talk to you and show you the right path', key: 2}
+    {icon: Career, subheader: 'Career Development Plan', text: 'Thinking of a career change or not sure which direction you should head? At JobForMe we can talk to you and show you the right path', key: 2}
 ];
 
 export const homeCardService: HomeCardModel[] = [
