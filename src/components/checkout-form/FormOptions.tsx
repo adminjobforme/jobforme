@@ -107,6 +107,13 @@ const FormOptions = forwardRef<FormOptionsModel, ChildProps>((props: ChildProps,
             </div>
             );
         }
+        case '9':{
+            return (
+                <div className='text-center mb-3'>
+                    We will call the you and go through the CV writing proces
+                </div>
+            );
+        }
         default:{
             return null
         }

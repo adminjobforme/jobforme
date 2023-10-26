@@ -144,7 +144,8 @@ const CheckoutForm = () => {
                 <Form.Label className='text-center w-100'>Select a Service</Form.Label>
                 <Form.Select onChange={(e) => handleFormOnChange(e)} aria-label="service selector">
                     <option disabled>-- Single Services --</option>
-                    <option value="0">CV - €60</option>
+                    <option value="0">CV editing - €60</option>
+                    <option value="9">CV writing - €60</option>
                     <option value="1">Cover Letter - €60</option>
                     <option value="2">LinkedIn Review - €60</option>
                     <option value="3">Interview Preparation - €50</option>

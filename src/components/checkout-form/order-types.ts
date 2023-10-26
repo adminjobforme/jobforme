@@ -9,5 +9,6 @@ export const orderTypes = [
     [OrderType.CV, OrderType.COVER_LETTER],
     [OrderType.CV, OrderType.LINKEDIN],
     [OrderType.COVER_LETTER, OrderType.LINKEDIN],
-    [OrderType.CV, OrderType.COVER_LETTER, OrderType.LINKEDIN]
+    [OrderType.CV, OrderType.COVER_LETTER, OrderType.LINKEDIN],
+    [OrderType.CV_WRITING]
 ]
